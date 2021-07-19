@@ -37,5 +37,15 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sass": "^1.35.2"
-  }
+  },
+  "main": "gatsby-browser.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/STL-Int/Website.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/STL-Int/Website/issues"
+  },
+  "homepage": "https://github.com/STL-Int/Website"
 }
