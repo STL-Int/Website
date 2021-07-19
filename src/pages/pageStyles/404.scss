@@ -1,0 +1,84 @@
+@use "../../globalStyles/variables" as var;
+@use "../../globalStyles/mixins" as mix;
+
+.error-page-wrapper{
+    background-image: linear-gradient(50deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.4) 100%),
+    url(../../images/backgroundImages/oil-4713386_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 
+        1fr 
+        8em 
+        2em 
+        6em 
+        1fr
+    ;
+    grid-template-areas: 
+        ". . ."
+        ". title ."
+        ". message ."
+        ". button ."
+        ". . ."
+    ;
+    gap: 2em;
+    width: 100vw;
+    min-height: 100vh;
+
+    .error-title-wrapper{
+        grid-area: title;
+    }
+
+    .error-message-wrapper{
+        grid-area: message;
+    }
+
+    .error-button-wrapper{
+        grid-area: button;
+    }
+}
+
+.error-title{
+    font-weight: 900;
+    font-size: 7em;
+    grid-area: 404;
+}
+
+.error-title-wrapper, .error-message-wrapper{
+    color: whitesmoke;
+}
+
+.error-title-wrapper, .error-message-wrapper, .error-button-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#error-button{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+@media (max-width: var.$tabletWidth){
+    .error-message{
+        font-size: 25px;
+    }
+
+    .error-page-wrapper{
+        background-image: linear-gradient(50deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.6) 100%),
+    url(../../images/backgroundImages/crane-4545898_1920.jpg);
+    }
+}
+
+@media (max-width: var.$mobileWidth){
+    .error-message{
+        font-size: 18px;
+        text-align: center;
+    }
+
+    #error-button{
+        padding: 1em;
+    }
+}

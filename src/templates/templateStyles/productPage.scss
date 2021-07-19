@@ -1,0 +1,138 @@
+@use "../../globalStyles/variables" as var;
+@use "../../globalStyles/mixins" as mix;
+@use "../../globalStyles/baseStyling";
+
+.page-content{
+    @include mix.flexAllCenter;
+    width: 100vw;
+}
+
+.header-wrapper{
+    margin-top: 1em;
+    border-bottom: 0.3em solid var.$headerColor;
+}
+
+.header-wrapper .product-title{
+    @include mix.flexAllCenter;
+}
+
+.product-info-wrapper{
+    margin: 0 2em 5em 2em;
+    padding-top: 2em;
+    max-width: var.$maxContentWidth;
+    display: grid;
+    grid-template-columns: 260px 0.5fr 3fr;
+    grid-template-rows: max-height(427px) auto ;
+    gap: 2em;
+    grid-template-areas: 
+    'image      image   text'
+    'buttons    .       text'
+    '.          .       text'
+    ;
+}
+
+.image-wrapper{
+    width: 100%;
+    grid-area: image;
+}
+
+.button-list-wrapper{
+    grid-area: buttons;
+}
+
+.documents-button{
+    max-width: 100%;
+    padding: 0.5em;
+    margin-top: 1em;
+
+    &:nth-child(1){
+        margin-top: 0;
+    }
+}
+
+.documents-button-link{
+    color: var.$baseColor;
+    text-decoration: none;
+}
+
+.post-body{
+    grid-area: text;
+
+
+    h3{
+        font-family: 'Nunito Sans', sans-serif;    
+        font-weight: 500;
+        font-size: 25px;
+        margin: 0;
+        padding: 0;
+        padding-top: 1em;
+
+        &:nth-child(1){
+            padding-top: 0;
+        }
+    }
+    p{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+
+        list-style: disc;
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: var.$tabletWidth){
+    .product-info-wrapper{
+        grid-template-columns: 400px 1fr ;
+
+        grid-template-areas: 
+        'image  buttons'
+        'text   text'
+        'text   text'
+        ;
+        gap: 1em;
+        max-width: 800px;
+    }
+
+    .documents-button{
+        max-width: 260px;
+    }
+
+    .post-body{
+        margin-top: 2em;
+    }
+
+    .product-title{
+        h1{
+            font-size: 2.5rem;
+        }
+    }
+
+}
+
+@media (max-width: var.$mobileWidth){
+    .product-info-wrapper{
+        grid-template-columns: 300px;
+
+        grid-template-areas: 
+        'image'
+        'buttons'
+        'text'
+        ;
+    }
+
+    .product-title{
+        h1{
+            font-size: 2rem;
+        }
+    }
+}

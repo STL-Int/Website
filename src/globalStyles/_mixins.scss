@@ -1,0 +1,72 @@
+@use './variables' as var;
+
+@mixin flexSpaceBetween{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin flexAllCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexColumnCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin flexRowCenter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexBetweenRowTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+@mixin boxShadow{
+    box-shadow: 5px 5px 40px 3px var.$shadow;
+}
+
+@mixin boxShadowHover{
+    box-shadow: 5px 5px 40px 3px var.$accentColor;
+}
+
+@mixin fadeIn{
+    transition: all 0.2s ease-in-out;    
+}   
+
+@mixin link {
+    color: var.$bodyColor;
+    text-decoration: none;
+
+    &:hover{
+        color: var.$accentColor;
+    }
+}
+
+@mixin linkDark {
+    color: whitesmoke;
+    text-decoration: none;
+
+    &:hover{
+        color: var.$accentColor;
+    }
+}
+
+@mixin grow {
+    transform: scale(103%);
+}
+

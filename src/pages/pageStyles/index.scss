@@ -1,0 +1,27 @@
+@use "../../globalStyles/baseStyling";
+@use "../../globalStyles/mixins" as mix;
+@use "../../globalStyles/variables" as var;
+
+.see-news-link{
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    text-decoration: none;
+}
+
+.btn{
+    padding: 1em 2em;
+    background-color: rgba(0,0,0,0);
+    border: 3px solid black;
+    cursor: pointer;
+    @include mix.fadeIn;
+
+    &:hover{
+        box-shadow: 2px 2px 100px 0px var.$accentColor;
+        transform: scale(103%);
+    }
+}
+
+// .grid-super-wrapper{
+//     margin-top: -5em;
+// }

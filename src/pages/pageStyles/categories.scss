@@ -1,0 +1,79 @@
+@use "../../globalStyles/variables" as var;
+@use "../../globalStyles/mixins" as mix;
+
+.sector-grid-wrapper{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5em 0;
+}
+
+.sector-grid{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, 400px);
+    list-style: none;
+    max-width: var.$maxContentWidth;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+.sector-card{
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+
+    &:visited{
+        color: white;
+    }
+}
+
+.sector-name-overlay{
+    background-color: rgba($color: black, $alpha: .6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    @include mix.fadeIn;
+
+    &:hover{
+        background-color: rgba(0, 0, 0, .3);
+    }
+}
+
+.sector-image{
+    width: 100%;
+    aspect-ratio: 1/0.7;
+    object-fit: cover;
+}
+
+.sector-name{
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+@media (max-width: var.$tabletWidth){
+    .sector-grid{
+        grid-template-columns: repeat(auto-fit, 300px);
+        gap: 1em;
+    }
+    .sector-name{
+        font-size: 24px;
+    }
+}
+@media (max-width: var.$mobileWidth){
+    .sector-grid{
+        grid-template-columns: repeat(auto-fit, 250px);
+    }
+    .sector-name{
+        font-size: 24px;
+    }
+}

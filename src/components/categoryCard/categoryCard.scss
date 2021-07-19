@@ -1,0 +1,7 @@
+@use "../../globalStyles/variables" as var;
+@use "../../globalStyles/mixins" as mix;
+
+.category-card{
+    height: auto;
+    min-height: 5em;
+}

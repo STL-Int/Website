@@ -1,0 +1,33 @@
+@use "../../globalStyles/variables" as var;
+@use "../../globalStyles/mixins" as mix;
+
+.social-share-buttons{
+    height: 25px;
+    width: 25px;
+    background-color: var.$bodyColor;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+    padding: 2px;
+    z-index: 0;
+    align-items: center;
+    justify-content: center;
+
+    &:hover{
+        @include mix.grow;
+    }
+}
+
+.social-share-buttons-wrapper{
+    height: 100%;
+    display: inline;
+    cursor: pointer;
+    align-items: center;
+    justify-content: end;
+}
+
+.share-icon{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}

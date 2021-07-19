@@ -1,0 +1,236 @@
+@use "../../globalStyles/mixins" as mix;
+@use "../../globalStyles/variables" as var;
+
+.contact-page-content{
+    background-image: linear-gradient(40deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%),
+    url(../../images/backgroundImages/chemistry-4473505_1920.jpg);
+    background-size: cover;
+    display: grid;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 20vw auto 50vw;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". title form";
+
+    .contact-form{   
+        grid-area: form;
+    }
+    .heading-contact-page{   
+        grid-area: title;
+    }
+}
+
+.heading-contact-page{
+    color: white;
+}
+
+.contact-form{
+    box-shadow: 5px 5px 40px 3px black;
+    display: grid;
+    grid-template-columns: .5fr 1em 1fr;
+    grid-template-rows: 5.5em auto 3.5em;
+    grid-template-areas:
+        "name . email"
+        "message message message"
+        "submit submit submit"
+    ;
+    width: 550px;
+    height: 500px;
+    padding: 3em 2em;
+    justify-content: flex-start;
+    background-color: #f5f5f5;
+    border-radius: 1em;
+
+    .name-wrapper{
+        grid-area: name;
+    }
+    .email-wrapper{
+        grid-area: email;
+    }
+    .message-wrapper{
+        grid-area: message;
+    }
+    .submit-button{
+        grid-area: submit;
+    }
+}
+
+.input{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-bottom: 2px solid var.$headerColor;
+    border-left: 2px solid var.$headerColor;
+    border-radius: 0;
+    background-color: rgba(0,0,0,0);
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 5px;
+    
+    @include mix.fadeIn;
+
+    &:focus{
+        outline: none;
+        background-color: #ecebeb;
+    }
+}
+
+.name-wrapper{
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 1em;
+}
+
+.email-wrapper{
+    grid-area: email;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 8px;
+}
+
+.message-wrapper{
+    grid-area: message;
+
+    padding-right: 8px;
+    margin-top: 1em;
+    
+
+    textarea{
+        resize: none;
+        max-height: 300px;
+        max-width: 100%;
+    }
+}
+
+label{
+    background-color: var.$baseColor;
+    color: white;
+    padding: .3em .5em;
+    width: fit-content;
+}
+
+.submit-button{
+    grid-area: submit;
+    background-color: var.$accentColor;
+    cursor: pointer;
+    @include mix.fadeIn;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    margin-top: 1em;
+
+    &:hover {
+
+        .arrow{
+            transform: translateX(.5em);
+        }
+    }
+}
+
+.arrow{
+    font-weight: 500;
+    font-size: 25px;
+    margin-left: .5em;
+    padding: 0;
+    padding-bottom: 5px;
+    @include mix.fadeIn;
+}
+
+.sub-text{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    padding: 0;
+    color: #66748a;
+}
+
+@media (max-width: 1700px){
+    .contact-page-content{
+        grid-template-columns: 10vw auto 50vw;
+    }
+}
+@media (max-width: 1300px){
+    .contact-form{
+        grid-template-columns: 1fr;
+        grid-template-rows: 5.5em 5.5em auto 3.5em;
+        grid-template-areas:
+            "name"
+            "email"
+            "message"
+            "submit"
+        ;
+        width: 40vw;
+        height: 500px;
+        padding: 3em 2em;
+    }
+
+    .message-wrapper{ 
+        textarea{
+            max-height: 200px;
+        }
+    }
+
+    .heading-contact-page{
+        margin-right: 2em;
+    }
+}
+@media (max-width: 1100px){
+    .contact-page-content{
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: 5em 5em auto;
+        grid-template-areas:
+            ". . ."
+            ". title ."
+            ". form ."
+        ;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 5em;
+    }
+
+    .contact-form{
+        grid-template-rows: 5.5em 5.5em auto 3.5em;
+        width: 80vw;
+        max-width: 550px;
+        height:fit-content;
+    }
+
+    .heading-contact-page{
+        margin-right: 0;
+        justify-self: center;
+    }
+
+    .message-wrapper{ 
+        height: fit-content;
+        textarea{
+            height: 20vh;
+        }
+    }
+}
+@media (max-width: var.$mobileWidth){
+
+    .contact-page-content{
+        grid-template-rows: 2em 5em auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heading-contact-page{
+        font-size: 32px;
+    }
+
+    .contact-form{
+        grid-template-rows: 5.5em 5.5em auto 3.5em;
+        width: 70vw;
+        max-width: 550px;
+        height:fit-content;
+    }
+}

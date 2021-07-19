@@ -1,0 +1,33 @@
+@use "../../globalStyles/baseStyling";
+@use "../../globalStyles/mixins" as mix;
+@use "../../globalStyles/variables" as var;
+
+.product-wrapper{
+    width: 250px;
+    background-color: white;
+    @include mix.boxShadow;
+    @include mix.fadeIn;
+    border-radius: var.$borderRadius;
+
+    &:hover{
+        @include mix.grow;
+        @include mix.boxShadowHover;
+    }
+}
+
+.product{
+    text-decoration: none;
+    color: var.$headerColor;
+    @include mix.flexAllCenter;
+}
+
+.product-image{
+    width: 100%;
+    border-radius: var.$borderRadius var.$borderRadius 0 0;
+}
+
+.product-name{
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 0.2em 0;
+}

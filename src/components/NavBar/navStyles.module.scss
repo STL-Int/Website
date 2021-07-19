@@ -1,0 +1,13 @@
+@use '../../globalstyles/variables' as var;
+@use '../../globalstyles/mixins' as mix;
+@use '../../globalstyles/baseStyling';
+
+nav{
+    @include mix.flexSpaceBetween;
+    width: 100vw;
+    background-color: var.$baseColor;
+}
+
+.logo{
+    margin-left: 2em;
+}
