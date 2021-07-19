@@ -9,7 +9,6 @@ import SEO from "../components/seo"
 import "./pageStyles/downloads.scss"
 
 export default function Category({ data }) {
-  var legalDocs = data.allContentfulLegal.edges
 
   return (
     <Layout>
@@ -24,10 +23,10 @@ export default function Category({ data }) {
       <div className="sector-grid-wrapper">
         
         <ul className="sector-grid">
-          {legalDocs.map(docs => {
+          {data.allContentfulDownload.edges.map(docs => {
             return (
               <li key={docs.node.id} className="sector-card-wrapper">
-                <a href={docs.node.document.file.url} className="download-card-wrapper">
+                <a href={docs.node.document.file.url} className="download-card-wrapper" target="_blank" rel="noreferrer">
                     <GatsbyImage className="file-icon" image={data.contentfulAsset.gatsbyImageData} alt={docs.node.document.title}/>
                     <div className="download-name-wrapper">
                         <h3 className="download-name">{docs.node.document.title}</h3>
@@ -43,7 +42,7 @@ export default function Category({ data }) {
 }
 
 export const data = graphql`{
-  allContentfulLegal {
+  allContentfulDownload {
     edges {
       node {
         id
@@ -58,7 +57,7 @@ export const data = graphql`{
   }
 
   contentfulAsset(title: {eq: "pdf icon"}) {
-    gatsbyImageData(layout: CONSTRAINED, width:200)
+    gatsbyImageData(layout: CONSTRAINED, width:150)
   }
 
   file(name: {eq: "sunset-3138887_1920"}, extension: {eq: "jpg"}) {
