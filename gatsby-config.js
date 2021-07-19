@@ -8,6 +8,7 @@ module.exports = {
     tagLine: `SAFE answers to HAZERDOUS questions`,
     author: `Ruben Heyse`,
     companyNumber: `04523345`,
+    siteUrl: `http://www.stl.co.uk`,
   },
 
   plugins: [
@@ -18,6 +19,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-sitemap`,
 
     {
       resolve: `gatsby-source-filesystem`,
@@ -56,6 +58,13 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         forceFullSync: true,
       },
+    },
+
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        configFile: 'robots-txt.config.js'
+      }
     },
   ],
 }
