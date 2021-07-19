@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { BgImage } from 'gbimage-bridge';
 
 import Layout from "../components/layout"
@@ -21,6 +21,16 @@ export default function Category({ data }) {
           <h1 className="text">{currentCategory.name}</h1>
         </div>
       </BgImage>
+
+      <div className="back-link-super-wrapper">
+        <div className="back-link-wrapper">
+          <Link to="/categories/" className="all-categories">
+            <h3>&lt; Back to all categories</h3>
+          </Link>
+        </div>
+      </div>
+
+      <hr id="line"/>
 
       <div className="content-wrapper">
         <div className="grid-super-wrapper">

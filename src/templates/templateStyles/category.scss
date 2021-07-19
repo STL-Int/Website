@@ -1,2 +1,40 @@
-@use "../../globalStyles/baseStyling";
+@use "../../globalStyles/variables" as var;
+@use "../../globalStyles/mixins" as mix;
 
+.back-link-super-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3em 0;
+}
+
+.back-link-wrapper{
+    max-width: var.$maxContentWidth;
+    width: 80vw;
+}
+
+.all-categories{
+    color: var.$bodyColor;
+    @include mix.fadeIn;
+    width: fit-content;
+    text-decoration: none;
+
+    &:visited{
+        color: var.$bodyColor;
+    }
+
+    &:hover{
+        color: var.$accentColor;
+        transform: translateX(-.5em);
+    }
+}
+
+h3{
+    width: auto;
+}
+
+#line{
+    width: 70vw;
+    margin-top: -8px;
+}
