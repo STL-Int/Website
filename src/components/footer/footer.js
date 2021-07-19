@@ -30,23 +30,23 @@ export default function Footer() {
         <div className="links-wrapper">
           <ul className="links-list">
             <li className="list-item">
-              <Link to="/legal/" className="link">
-                Legal
-              </Link>
-            </li>
-            <li className="list-item">
               <Link to="/" className="link">
                 Home
               </Link>
             </li>
             <li className="list-item">
-              <Link to="/categories" className="link">
-                Categories
+              <Link to="/about" className="link">
+                About Us
               </Link>
             </li>
             <li className="list-item">
-              <Link to="/about" className="link">
-                About Us
+              <Link to="/downloads/" className="link">
+                Downloads
+              </Link>
+            </li>
+            <li className="list-item">
+              <Link to="/categories" className="link">
+                Categories
               </Link>
             </li>
             <li className="list-item">
