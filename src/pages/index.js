@@ -68,12 +68,12 @@ const IndexPage = () => {
       <SEO title="Home" />
       <HeroImage link={data.contentfulAsset.file.url} />
 
-      <div id="Categories">
-        <h2 id="category-title">Categories</h2>
-        <hr/>
+      <div id="Categories" className="index-section">
+        <h2 id="category-title" className="section-title">Categories</h2>
+        <hr className="index-rule"/>
 
-        <div className="sector-grid-wrapper">
-          <ul className="sector-grid">
+        <div id="sector-grid-wrapper-index" className="sector-grid-wrapper">
+          <ul id="sector-grid-index"  className="sector-grid">
             {data.allContentfulCategory.edges.map(edge => {
               return (
                 <li key={edge.node.id} className="sector-card-wrapper">
@@ -86,17 +86,18 @@ const IndexPage = () => {
               )
             })}
           </ul>
-          <Link to="/blog/" className="see-more-link">
-              <button className="btn">
-                <p>See All News Posts</p>
-              </button>
-            </Link>
         </div>
+        <Link to="/categories/" id="see-more-categories" className="see-more-link">
+          <button className="btn">
+            <p>See All Categories</p>
+          </button>
+        </Link>
       </div>
 
-      <div id="Categories">
-        <h2 id="category-title">Categories</h2>
-        <hr/> 
+      <div id="Categories" className="index-section">
+        <h2 id="news-title" className="section-title">News</h2>
+        <hr className="index-rule"/> 
+        
         <div className="grid-super-wrapper">
           <div className="grid-boundary-box">
             <ul className="grid">
