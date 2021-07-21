@@ -1,23 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import BackgroundImage from "gatsby-background-image"
+import { BgImage } from 'gbimage-bridge';
 
 import "./categoryCard.scss"
 
-const CategoryCard = ({ imgFluid, slug, name }) => {
+const CategoryCard = ({ imgData, slug, name }) => {
   return (
-    <Link to={`/categories/${slug}/`} className="category-card">
-      <BackgroundImage
-        Tag="section"
-        className="sector-image"
-        fluid={imgFluid}
-        backgroundColor={`transparent`}
-      >
-        <div className="overlay">
-          <h1 className="category-name">{name}</h1>
+    <Link
+      to={`/categories/${slug}/`}
+      className="sector-card"
+    >
+      <BgImage image={imgData} className="sector-image" >
+        <div className="sector-name-overlay">
+          <h2 className="sector-name">{name}</h2>
         </div>
-      </BackgroundImage>
+      </BgImage>
     </Link>
   )
 }

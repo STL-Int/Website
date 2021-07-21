@@ -4,6 +4,7 @@ import { BgImage } from 'gbimage-bridge';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CategoryCard from "../components/categoryCard/categoryCard"
 
 import "./pageStyles/categories.scss"
 
@@ -23,16 +24,11 @@ export default function Category({ data }) {
           {data.allContentfulCategory.edges.map(edge => {
             return (
               <li key={edge.node.id} className="sector-card-wrapper">
-                <Link
-                  to={`/categories/${edge.node.slug}/`}
-                  className="sector-card"
-                >
-                  <BgImage image={edge.node.image.gatsbyImageData} className="sector-image" >
-                    <div className="sector-name-overlay">
-                      <h2 className="sector-name">{edge.node.name}</h2>
-                    </div>
-                  </BgImage>
-                </Link>
+                <CategoryCard 
+                  imgData={edge.node.image.gatsbyImageData} 
+                  slug={edge.node.slug}
+                  name={edge.node.name}
+                />
               </li>
             )
           })}
