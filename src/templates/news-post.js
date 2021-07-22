@@ -21,7 +21,10 @@ export const query = graphql`query ($slug: String!) {
       gatsbyImageData(width: 750, quality: 80, layout: CONSTRAINED)
     }
     postBody {
-      raw
+      childMarkdownRemark {
+        html
+        timeToRead
+      }
     }
     category {
       id
@@ -111,9 +114,12 @@ const NewsPost = props => {
           </div>
 
           <div className="body-wrapper">
-            <div className="post-body">
-              {renderRichText(props.data.contentfulNewsPost.postBody)}
-            </div>
+            <div
+              className="post-body"
+              dangerouslySetInnerHTML={{
+                __html: props.data.contentfulNewsPost.postBody.childMarkdownRemark.html,
+              }}
+            />
           </div>
         </div>
       </div>
