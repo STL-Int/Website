@@ -83,6 +83,11 @@ const Code = ({ children }) => <span
 //
 // ---------------Blocks-----------------
 //
+const Text = ({ children }) => <p 
+    style={{
+      width: "100%"
+    }}
+  >{children}</p>
 const Paragraph = ({ children }) => <p 
     style={{
       padding: "5px 0",
@@ -97,18 +102,21 @@ const Heading = ({ children }) => <p
       fontSize: "25px",
     }}
   >{children}</p>
-const Hr = ({ children }) => <p 
+const Hr = ({ children }) => <span 
     style={{
       width: "100%",
       borderBottom: "1px solid #8599b8",
-      margin: "1em 0"
+      padding: "1em 0"
     }}
-  >{children}</p>
+  >{children}</span>
 const Quote = ({ children }) => <p 
     style={{
       borderLeft: "3px solid #6dc7fc",
       paddingLeft: ".5em",
       margin: "5px 1em",
+      fontWeight: "300",
+      fontStyle: "italic",
+      fontSize: "20px",
     }}
   >{children}</p>
 
