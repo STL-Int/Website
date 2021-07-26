@@ -65,14 +65,22 @@ export const query = graphql`query ($slug: String!) {
   }
 }
 `
+
+//
 // ---------------Marks-----------------
 //
 const Bold = ({ children }) => <span style={{fontWeight: 300}}>{children}</span>
 const Italic = ({ children }) => <span style={{fontStyle: "italic"}}>{children}</span>
 const Underline = ({ children }) => <span style={{textDecoration: "underline"}}>{children}</span>
 
+//
+// ---------------Blocks-----------------
+//
 const Text = ({ children }) => <p className="align-center">{children}</p>
 
+//
+// ---------------Inline-----------------
+//
 const IframeContainer = styled.span`
   padding-bottom: 56.25%; 
   position: relative; 
