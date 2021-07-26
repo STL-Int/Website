@@ -26,7 +26,6 @@ function Layout ({ children }){
 
       <Footer />
 
-      <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"/>
 
     </body>
   )

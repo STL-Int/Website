@@ -1,8 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
-import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
-import { MDXProvider } from "@mdx-js/react"
+
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -22,13 +24,7 @@ export const query = graphql`query ($slug: String!) {
       gatsbyImageData(width: 750, quality: 80, layout: CONSTRAINED)
     }
     postBody {
-      childMarkdownRemark {
-        html
-        timeToRead
-      }
-      childMdx {
-        body
-      }
+      raw
     }
     category {
       id
@@ -69,47 +65,55 @@ export const query = graphql`query ($slug: String!) {
   }
 }
 `
+// ---------------Marks-----------------
+//
+const Bold = ({ children }) => <span style={{fontWeight: 300}}>{children}</span>
+const Italic = ({ children }) => <span style={{fontStyle: "italic"}}>{children}</span>
+const Underline = ({ children }) => <span style={{textDecoration: "underline"}}>{children}</span>
 
-const H1Style = props => <h1 style={{ color: "#000000" }} {...props} />
-const paraStyle = props => (
-  <p style={{ fontSize: "16px", lineHeight: 1.6 , marginTop: "1em"}} {...props} />
-)
-const tableStyle = props => (
-  <table style={{ 
-    border: "1px solid black", 
-    borderRadius: "1em", 
-    padding: "1em 1.5em",
-    textAlign: "left",
-    width: "80vw",
-    maxWidth: "400px",
-    justifySelf: "center"
-  }} {...props} />
-)
-const tableRowStyle = props => (
-  <tr style={{ borderBottom: "1px solid black"}} {...props} />
-)
-const tableCellStyle = props => (
-  <td style={{ 
-    padding: "0 1.5em",
-    textAlign: "left",
-  }} {...props} />
-)
-const tableHeaderStyle = props => (
-  <th style={{ 
-    textAlign: "left",
-    borderBottom: "1px solid black"
-   }} {...props} />
-)
+const Text = ({ children }) => <p className="align-center">{children}</p>
 
-const components = {
-  h1: H1Style,
-  p: paraStyle,
-  table: tableStyle,
-  tr: tableRowStyle,
-  td: tableCellStyle,
-  th: tableHeaderStyle,
+const IframeContainer = styled.span`
+  padding-bottom: 56.25%; 
+  position: relative; 
+  display: block; 
+  width: 100%;
+
+  > iframe {
+    height: 100%;
+    width: 100%;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+  }`
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    [MARKS.ITALIC]: text => <Italic>{text}</Italic>,
+    [MARKS.UNDERLINE]: text => <Underline>{text}</Underline>,
+  },
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      return (
+        <>
+          <h2>Embedded Asset</h2>
+          <pre>
+            <code>{JSON.stringify(node, null, 2)}</code>
+          </pre>
+        </>
+      )
+    },
+    [INLINES.HYPERLINK]: (node) => {
+      if((node.data.uri).includes("player.vimeo.com/video")){
+        return <IframeContainer><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen></iframe></IframeContainer>
+      } else if((node.data.uri).includes("youtube.com/embed")) {
+        return <IframeContainer><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></IframeContainer>
+      }
+    },
+  },
 }
-
 
 
 
@@ -140,13 +144,13 @@ const NewsPost = props => {
               {props.data.contentfulNewsPost.publishedDate}
             </span>
             <span className="tag-wrapper">
-              <GatsbyImage
+              {/* <GatsbyImage
                 image={props.data.clock.childImageSharp.gatsbyImageData}
                 className="tag-icon"
                 alt="mail tags" 
               />
 
-              <p id="read-time">{props.data.contentfulNewsPost.postBody.childMarkdownRemark.timeToRead} min read</p>
+              <p id="read-time">{props.data.contentfulNewsPost.postBody.childMarkdownRemark.timeToRead} min read</p> */}
 
               <GatsbyImage
                 image={props.data.tag.childImageSharp.gatsbyImageData}
@@ -175,11 +179,9 @@ const NewsPost = props => {
           </div>
 
           <div className="body-wrapper">
-            <MDXProvider components={components}>
-              <article className="blog-body">
-                <MDXRenderer>{props.data.contentfulNewsPost.postBody.childMdx.body}</MDXRenderer>
-              </article>
-            </MDXProvider>
+            <div className="post-body">
+              {renderRichText(props.data.contentfulNewsPost.postBody, options)}
+            </div>
           </div>
         </div>
       </div>
