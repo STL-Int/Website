@@ -10,6 +10,7 @@
 
 .post-content{
     margin: 3em 5em;
+    width: 100%;
     max-width: var.$maxContentWidth;
     display: grid;
     grid-template-columns: 100%;
@@ -99,6 +100,10 @@
     align-items: center;
 }
 
+#read-time{
+    margin-right: 1em;
+}
+
 .tag-list{
     display: flex;
     flex-direction: row;
@@ -135,9 +140,13 @@
     justify-content: center;
 }
 
-.post-body{
+.blog-body{
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    margin: 0 5em;
+    width: 100%;
+    text-align: left;
+    justify-content: center;
 }
 
 hr{
@@ -189,6 +198,7 @@ hr{
     }
     .tag-wrapper{
         margin: 0;
+        flex-direction: column;
     }
     .tag-list{
         flex-direction: column;

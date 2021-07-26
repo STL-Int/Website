@@ -22,6 +22,23 @@ module.exports = {
     `gatsby-plugin-sitemap`,
 
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 590,
+              linkImagesToOriginal: true,
+              withWebp: true,
+              loading: "lazy",
+            },
+          },
+        ],
+      },
+    },
+
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

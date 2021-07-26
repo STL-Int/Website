@@ -8,6 +8,12 @@ import Footer from "./footer/footer"
 
 import "./layoutStyles.scss"
 
+export function embedlyScript(){
+  return
+    
+  
+}
+
 function Layout ({ children }){
   
   return (
@@ -19,6 +25,9 @@ function Layout ({ children }){
       </div>
 
       <Footer />
+
+      <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"/>
+
     </body>
   )
 }

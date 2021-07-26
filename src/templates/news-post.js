@@ -1,7 +1,8 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
-import { renderRichText } from "gatsby-source-contentful/rich-text"
+import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
+import { MDXProvider } from "@mdx-js/react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -24,6 +25,9 @@ export const query = graphql`query ($slug: String!) {
       childMarkdownRemark {
         html
         timeToRead
+      }
+      childMdx {
+        body
       }
     }
     category {
@@ -52,13 +56,62 @@ export const query = graphql`query ($slug: String!) {
       }
     }
   }
-  file(name: {eq: "tag"}, extension: {eq: "png"}) {
+
+  tag: file(name: {eq: "tag"}, extension: {eq: "png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  clock: file(name: {eq: "clock"}, extension: {eq: "png"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
     }
   }
 }
 `
+
+const H1Style = props => <h1 style={{ color: "#000000" }} {...props} />
+const paraStyle = props => (
+  <p style={{ fontSize: "16px", lineHeight: 1.6 , marginTop: "1em"}} {...props} />
+)
+const tableStyle = props => (
+  <table style={{ 
+    border: "1px solid black", 
+    borderRadius: "1em", 
+    padding: "1em 1.5em",
+    textAlign: "left",
+    width: "80vw",
+    maxWidth: "400px",
+    justifySelf: "center"
+  }} {...props} />
+)
+const tableRowStyle = props => (
+  <tr style={{ borderBottom: "1px solid black"}} {...props} />
+)
+const tableCellStyle = props => (
+  <td style={{ 
+    padding: "0 1.5em",
+    textAlign: "left",
+  }} {...props} />
+)
+const tableHeaderStyle = props => (
+  <th style={{ 
+    textAlign: "left",
+    borderBottom: "1px solid black"
+   }} {...props} />
+)
+
+const components = {
+  h1: H1Style,
+  p: paraStyle,
+  table: tableStyle,
+  tr: tableRowStyle,
+  td: tableCellStyle,
+  th: tableHeaderStyle,
+}
+
+
+
 
 const NewsPost = props => {
   var image_name = props.data.contentfulNewsPost.thumbnail.file.fileName.split(
@@ -88,10 +141,18 @@ const NewsPost = props => {
             </span>
             <span className="tag-wrapper">
               <GatsbyImage
-                image={props.data.file.childImageSharp.gatsbyImageData}
+                image={props.data.clock.childImageSharp.gatsbyImageData}
                 className="tag-icon"
-                alt="post tags" />
+                alt="mail tags" 
+              />
 
+              <p id="read-time">{props.data.contentfulNewsPost.postBody.childMarkdownRemark.timeToRead} min read</p>
+
+              <GatsbyImage
+                image={props.data.tag.childImageSharp.gatsbyImageData}
+                className="tag-icon"
+                alt="post tags" 
+              />
               <ul className="tag-list">
                 {props.data.contentfulNewsPost.category.map(category => {
                   return (
@@ -114,12 +175,11 @@ const NewsPost = props => {
           </div>
 
           <div className="body-wrapper">
-            <div
-              className="post-body"
-              dangerouslySetInnerHTML={{
-                __html: props.data.contentfulNewsPost.postBody.childMarkdownRemark.html,
-              }}
-            />
+            <MDXProvider components={components}>
+              <article className="blog-body">
+                <MDXRenderer>{props.data.contentfulNewsPost.postBody.childMdx.body}</MDXRenderer>
+              </article>
+            </MDXProvider>
           </div>
         </div>
       </div>
