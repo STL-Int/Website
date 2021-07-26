@@ -72,11 +72,45 @@ export const query = graphql`query ($slug: String!) {
 const Bold = ({ children }) => <span style={{fontWeight: 300}}>{children}</span>
 const Italic = ({ children }) => <span style={{fontStyle: "italic"}}>{children}</span>
 const Underline = ({ children }) => <span style={{textDecoration: "underline"}}>{children}</span>
+const Code = ({ children }) => <span 
+  style={{
+    fontFamily: "Lucida Console, Courier New, monospace", 
+    padding: "1em",
+  }}>
+    {children}
+  </span>
 
 //
 // ---------------Blocks-----------------
 //
-const Text = ({ children }) => <p className="align-center">{children}</p>
+const Paragraph = ({ children }) => <p 
+    style={{
+      padding: "5px 0",
+      width: "100%"
+    }}
+  >{children}</p>
+const Heading = ({ children }) => <p 
+    style={{
+      paddingBottom: "5px",
+      fontFamily: "Nunito Sans, sans-serif",    
+      fontWeight: "500",
+      fontSize: "25px",
+    }}
+  >{children}</p>
+const Hr = ({ children }) => <p 
+    style={{
+      width: "100%",
+      borderBottom: "1px solid #8599b8",
+      margin: "1em 0"
+    }}
+  >{children}</p>
+const Quote = ({ children }) => <p 
+    style={{
+      borderLeft: "3px solid #6dc7fc",
+      paddingLeft: ".5em",
+      margin: "5px 1em",
+    }}
+  >{children}</p>
 
 //
 // ---------------Inline-----------------
@@ -86,6 +120,7 @@ const IframeContainer = styled.span`
   position: relative; 
   display: block; 
   width: 100%;
+  margin: 2rem 0;
 
   > iframe {
     height: 100%;
@@ -100,9 +135,13 @@ const options = {
     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
     [MARKS.ITALIC]: text => <Italic>{text}</Italic>,
     [MARKS.UNDERLINE]: text => <Underline>{text}</Underline>,
+    [MARKS.CODE]: text => <Code>{text}</Code>,
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <Paragraph>{children}</Paragraph>,
+    [BLOCKS.HEADING_1]: (node, children) => <Heading>{children}</Heading>,
+    [BLOCKS.HR]: (node, children) => <Hr>{children}</Hr>,
+    [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
     [BLOCKS.EMBEDDED_ASSET]: node => {
       return (
         <>
@@ -115,7 +154,7 @@ const options = {
     },
     [INLINES.HYPERLINK]: (node) => {
       if((node.data.uri).includes("player.vimeo.com/video")){
-        return <IframeContainer><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen></iframe></IframeContainer>
+        return <IframeContainer><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen/></IframeContainer>
       } else if((node.data.uri).includes("youtube.com/embed")) {
         return <IframeContainer><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></IframeContainer>
       }
