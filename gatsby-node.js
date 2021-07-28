@@ -40,16 +40,7 @@ async function turnCategoryIntoPage({ graphql, actions }) {
   }
   `)
   
-  let pageArray = []
-  response.data.allContentfulCategory.edges.map(edge => {
-    if (edge.node.name !== null) {
-      pageArray.push(edge.node)
-    }
-  })
-
-  console.log(pageArray)
-
-  pageArray.forEach(page => {
+  response.data.allContentfulCategory.edges.forEach(page => {
     createPage({
       path: `/categories/${page.node.slug}`,
       component: path.resolve("./src/templates/category.js"),
