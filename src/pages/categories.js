@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { BgImage } from 'gbimage-bridge';
 
 import Layout from "../components/layout"
@@ -22,15 +22,18 @@ export default function Category({ data }) {
       <div className="sector-grid-wrapper">
         <ul className="sector-grid">
           {data.allContentfulCategory.edges.map(edge => {
-            return (
-              <li key={edge.node.id} className="sector-card-wrapper">
-                <CategoryCard 
-                  imgData={edge.node.image.gatsbyImageData} 
-                  slug={edge.node.slug}
-                  name={edge.node.name}
-                />
-              </li>
-            )
+            if (edge.node.name !== null) {
+              return (
+                <li key={edge.node.id} className="sector-card-wrapper">
+                  {console.log(edge.node)}
+                  <CategoryCard 
+                    imgData={edge.node.image.gatsbyImageData} 
+                    slug={edge.node.slug}
+                    name={edge.node.name}
+                  />
+                </li>
+              )
+            }
           })}
         </ul>
       </div>

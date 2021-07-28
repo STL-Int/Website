@@ -34,31 +34,31 @@ const IndexPage = () => {
           }
         }
 
-        # allContentfulNewsPost(
-        #   sort: { fields: publishedDate, order: DESC }
-        #   limit: 6
-        # ) {
-        #   edges {
-        #     node {
-        #       title
-        #       id
-        #       slug
-        #       publishedDate(formatString: "Do MMMM, YYYY")
-        #       featuredImage {
-        #         gatsbyImageData(width: 750, quality: 80, layout: CONSTRAINED)
+        allContentfulNewsPost(
+          sort: { fields: publishedDate, order: DESC }
+          limit: 6
+        ) {
+          edges {
+            node {
+              title
+              id
+              slug
+              publishedDate(formatString: "Do MMMM, YYYY")
+              featuredImage {
+                gatsbyImageData(width: 750, quality: 80, layout: CONSTRAINED)
 
-        #         file {
-        #           fileName
-        #         }
-        #       }
-        #       excerpt {
-        #         childMarkdownRemark {
-        #           excerpt(pruneLength: 200)
-        #         }
-        #       }
-        #     }
-        #   }
-        # }
+                file {
+                  fileName
+                }
+              }
+              excerpt {
+                childMarkdownRemark {
+                  excerpt(pruneLength: 200)
+                }
+              }
+            }
+          }
+        }
       }
     `
   )
@@ -94,7 +94,8 @@ const IndexPage = () => {
         </Link>
       </div>
 
-      {/* <div id="Categories" className="index-section">
+      
+      <div id="Categories" className="index-section">
         <h2 id="news-title" className="section-title">News</h2>
         <hr className="index-rule"/> 
         
@@ -102,18 +103,20 @@ const IndexPage = () => {
           <div className="grid-boundary-box">
             <ul className="grid">
               {data.allContentfulNewsPost.edges.map(edge => {
-                return (
-                  <li key={edge.node.id}>
-                    <NewsPostCard
-                      imgSrc={edge.node.featuredImage.gatsbyImageData}
-                      imgAlt={edge.node.featuredImage.file.fileName}
-                      slug={edge.node.slug}
-                      title={edge.node.title}
-                      date={edge.node.publishedDate}
-                      excerpt={edge.node.excerpt.childMarkdownRemark.excerpt}
-                    />
-                  </li>
-                )
+                if (edge.node.featuredImage.file !== null) {
+                  return (
+                    <li key={edge.node.id}>
+                      <NewsPostCard
+                        imgSrc={edge.node.featuredImage.gatsbyImageData}
+                        imgAlt={edge.node.featuredImage.file.fileName}
+                        slug={edge.node.slug}
+                        title={edge.node.title}
+                        date={edge.node.publishedDate}
+                        excerpt={edge.node.excerpt.childMarkdownRemark.excerpt}
+                      />
+                    </li>
+                  )
+                }
               })}
             </ul>
 
@@ -124,7 +127,7 @@ const IndexPage = () => {
             </Link>
           </div>
         </div>
-      </div> */}
+      </div>
     </Layout>
   )
 }

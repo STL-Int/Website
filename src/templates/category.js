@@ -10,15 +10,14 @@ import "../components/bannerImage/banner.scss"
 import "./templateStyles/category.scss"
 
 export default function Category({ data }) {
-  let currentCategory = data.contentfulCategory
 
   return (
     <Layout>
-      <SEO title={currentCategory.name} />
-      
+      <SEO title={data.contentfulCategory.name} />
+      {console.log(data)}
       <BgImage image={data.file.childImageSharp.gatsbyImageData} className="banner-image" >
         <div className="overlay">
-          <h1 className="text">{currentCategory.name}</h1>
+          <h1 className="text">{data.contentfulCategory.name}</h1>
         </div>
       </BgImage>
 
