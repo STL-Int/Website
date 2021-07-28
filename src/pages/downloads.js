@@ -20,32 +20,36 @@ export default function Category({ data }) {
         </div>
       </BgImage>
 
-      <div className="sector-grid-wrapper">
+
         
-        <ul className="document-grid">
-          {data.allContentfulDownload.edges.map(docType => {
-            return (
-              <li key={docType.node.id} className="sector-card-wrapper">
-                <h1 className="download__heading">{docType.node.title}</h1>
+      <ul className="document-grid">
+        {data.allContentfulDownload.edges.map(docType => {
+          return (
+
+            <li key={docType.node.id} className="doc-type-wrapper">
+              <h1 className="download__heading">{docType.node.downloadCategory}</h1>
+
+              <ul className="card-grid">
                 {docType.node.documents.map(docs => {
                   return (
-                    <ul className="sector-grid">
-                      <li key={docs.id}>
-                        <a href={docs.file.url} className="download-card-wrapper" target="_blank" rel="noreferrer">
-                            <GatsbyImage className="file-icon" image={data.downloadIcon.childImageSharp.gatsbyImageData} alt={"download" + docs.title}/>
-                            <div className="download-name-wrapper">
-                                <h3 className="download-name">{docs.title}</h3>
-                            </div>
-                        </a>
-                      </li>
-                    </ul>
+
+                    <li key={docs.id}>
+                      <a href={docs.file.url} className="download-card" target="_blank" rel="noreferrer" aria-label={"download" + docs.title}>
+                          <GatsbyImage className="file-icon" image={data.downloadIcon.childImageSharp.gatsbyImageData} />
+                          <div className="download-name-wrapper">
+                              <p className="download-name">{docs.title}</p>
+                          </div>
+                      </a>
+                    </li>
+
                   )
                 })}
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+              </ul>
+            </li>
+            
+          )
+        })}
+      </ul>
     </Layout>
   );
 }
