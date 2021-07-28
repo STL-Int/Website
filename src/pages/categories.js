@@ -25,7 +25,6 @@ export default function Category({ data }) {
             if (edge.node.name !== null) {
               return (
                 <li key={edge.node.id} className="sector-card-wrapper">
-                  {console.log(edge.node)}
                   <CategoryCard 
                     imgData={edge.node.image.gatsbyImageData} 
                     slug={edge.node.slug}
@@ -33,6 +32,8 @@ export default function Category({ data }) {
                   />
                 </li>
               )
+            }else{
+              return console.log("list item is null")
             }
           })}
         </ul>

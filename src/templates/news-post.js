@@ -83,11 +83,6 @@ const Code = ({ children }) => <span
 //
 // ---------------Blocks-----------------
 //
-const Text = ({ children }) => <p 
-    style={{
-      width: "100%"
-    }}
-  >{children}</p>
 const Paragraph = ({ children }) => <p 
     style={{
       padding: "5px 0",
@@ -262,6 +257,8 @@ const NewsPost = props => {
                     />
                 </li>
                 )
+            }else{
+              return console.log("list item is null")
             }
           })}
         </ul>

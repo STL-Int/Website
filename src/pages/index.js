@@ -116,6 +116,8 @@ const IndexPage = () => {
                       />
                     </li>
                   )
+                }else{
+                  return console.log("list item is null")
                 }
               })}
             </ul>
