@@ -28,24 +28,33 @@ async function turnNewsIntoPage({ graphql, actions }) {
 async function turnCategoryIntoPage({ graphql, actions }) {
   const { createPage } = actions
   const response = await graphql(`
-    query {
-      allContentfulCategory {
-        edges {
-          node {
-            slug
-            name
-          }
+  query {
+    allContentfulCategory {
+      edges {
+        node {
+          slug
+          name
         }
       }
     }
+  }
   `)
+  
+  let pageArray = []
+  response.data.allContentfulCategory.edges.map(edge => {
+    if (edge.node.name !== null) {
+      pageArray.push(edge.node)
+    }
+  })
 
-  response.data.allContentfulCategory.edges.forEach(edge => {
+  console.log(pageArray)
+
+  pageArray.forEach(page => {
     createPage({
-      path: `/categories/${edge.node.slug}`,
+      path: `/categories/${page.node.slug}`,
       component: path.resolve("./src/templates/category.js"),
       context: {
-        category: edge.node.name,
+        category: page.node.name,
       },
     })
   })

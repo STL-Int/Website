@@ -1,0 +1,167 @@
+{
+    "data": {
+      "allContentfulCategory": {
+        "edges": [
+          {
+            "node": {
+              "slug": "extreme-temperatures",
+              "name": "Extreme Temperatures"
+            }
+          },
+          {
+            "node": {
+              "slug": "warning",
+              "name": "Warning"
+            }
+          },
+          {
+            "node": {
+              "slug": "windsock",
+              "name": "Windsock"
+            }
+          },
+          {
+            "node": {
+              "slug": "temp-port",
+              "name": "Temp/Port"
+            }
+          },
+          {
+            "node": {
+              "slug": "flood",
+              "name": "Flood"
+            }
+          },
+          {
+            "node": {
+              "slug": "industrial-led",
+              "name": "Industrial LED"
+            }
+          },
+          {
+            "node": {
+              "slug": "cleanroom",
+              "name": "Cleanroom"
+            }
+          },
+          {
+            "node": {
+              "slug": "street",
+              "name": "Street"
+            }
+          },
+          {
+            "node": {
+              "slug": "food-manufacture",
+              "name": "Food Manufacture"
+            }
+          },
+          {
+            "node": {
+              "slug": "high-bay",
+              "name": "High Bay"
+            }
+          },
+          {
+            "node": {
+              "slug": "vandal",
+              "name": "Vandal"
+            }
+          },
+          {
+            "node": {
+              "slug": "zone-2-22",
+              "name": "Zone 2/22"
+            }
+          },
+          {
+            "node": {
+              "slug": "zone-1-21",
+              "name": "Zone 1/21"
+            }
+          },
+          {
+            "node": {
+              "slug": "extreme-temperatures",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "warning",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "windsock",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "temp-port",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "flood",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "industrial-led",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "cleanroom",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "street",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "food-manufacture",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "high-bay",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "vandal",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "zone-2-22",
+              "name": null
+            }
+          },
+          {
+            "node": {
+              "slug": "zone-1-21",
+              "name": null
+            }
+          }
+        ]
+      }
+    },
+    "extensions": {
+      "enableRefresh": "true"
+    }
+  }

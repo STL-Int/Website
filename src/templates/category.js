@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { BgImage } from 'gbimage-bridge';
 
 import Layout from "../components/layout"
@@ -9,38 +9,11 @@ import SEO from "../components/seo"
 import "../components/bannerImage/banner.scss"
 import "./templateStyles/category.scss"
 
-export default function Category() {
-
-  const data = useStaticQuery(graphql`
-    query ($category: String!) {
-      allContentfulProduct(filter: {categories: {elemMatch: {name: {eq: $category}}}}) {
-        edges {
-          node {
-            id
-            productImage {
-              gatsbyImageData(layout: FULL_WIDTH)
-            }
-            productName
-            slug
-          }
-        }
-      }
-      contentfulCategory(name: {eq: $category}) {
-        name
-        slug
-      }
-      file(name: {eq: "factory_light_LED_2"}, extension: {eq: "png"}) {
-        childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH)
-        }
-      }
-    }
-  `)
+export default function Category({ data }) {
 
   return (
     <Layout>
       <SEO title={data.contentfulCategory.name} />
-      {console.log(data)}
       <BgImage image={data.file.childImageSharp.gatsbyImageData} className="banner-image" >
         <div className="overlay">
           <h1 className="text">{data.contentfulCategory.name}</h1>
@@ -81,3 +54,27 @@ export default function Category() {
   );
 }
 
+export const query = graphql`query ($category: String!) {
+  allContentfulProduct(filter: {categories: {elemMatch: {name: {eq: $category}}}}) {
+    edges {
+      node {
+        id
+        productImage {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+        productName
+        slug
+      }
+    }
+  }
+  contentfulCategory(name: {eq: $category}) {
+    name
+    slug
+  }
+  file(name: {eq: "factory_light_LED_2"}, extension: {eq: "png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+}
+`
