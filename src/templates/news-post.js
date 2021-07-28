@@ -230,7 +230,7 @@ const NewsPost = props => {
             alt={props.data.contentfulNewsPost.featuredImage.file.fileName}
             />
 
-          <div className="image-excerpt">
+          <div className="image-description">
             <p className="image-name">{image_name[0]}</p>
           </div>
 
