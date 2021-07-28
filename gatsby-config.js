@@ -71,8 +71,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `mgqo16izprzv`,
-        accessToken: `TNEo-MdQnErRvZsjP5-1HC-DcgsQ_31XEGubaxCcxtU`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         forceFullSync: true,
       },
     },
@@ -88,7 +88,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: `G-Y0T98HYB45`,
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
         // Setting this parameter is optional
