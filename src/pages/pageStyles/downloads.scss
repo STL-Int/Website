@@ -1,16 +1,50 @@
 @use "../../globalStyles/variables" as var;
 @use "../../globalStyles/mixins" as mix;
 
-.download-card-wrapper{
+.document-grid{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10vh 0;
+}
+
+.doc-type-wrapper{
+    width: 100%;
+    max-width: var.$maxContentWidth;
+    margin: 5vh 5vw;
+}
+
+.download__heading{
+    margin-bottom: 5vh;
+    width: 100%;
+    text-align: center;
+}
+
+.card-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-gap: 1em;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+.download-card{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     text-decoration: none;
     box-shadow: 2px 2px 40px rgba($color: #8d8d8d, $alpha: 0.5);
     border-radius: 3em;
     width: auto;
-    padding: 2em 3em;
+    height: 300px;
+    padding: 2em ;
+    margin: 0; 
     @include mix.fadeIn;
     
     &:visited{
@@ -22,12 +56,29 @@
             color: var.$accentColor;
         }
 
-        scale: 0.95;
+        scale: 0.965;
     }
+}
+
+.file-icon{
+    width: 75px;
 }
 
 .download-name{
     color: var.$bodyColor;
     @include mix.fadeIn;
     text-align: center;
+    margin-top: 1vh;
+}
+
+@media (max-width: var.$tabletWidth){
+    .sector-grid{
+        grid-template-columns: repeat(auto-fit, 300px);
+        gap: 1em;
+    }
+}
+@media (max-width: var.$mobileWidth){
+    .sector-grid{
+        grid-template-columns: repeat(auto-fit, 250px);
+    }
 }
