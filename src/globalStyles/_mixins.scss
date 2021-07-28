@@ -47,6 +47,9 @@
 @mixin fadeIn{
     transition: all 0.2s ease-in-out;    
 }   
+@mixin fadeOut{
+    transition: all 0.2s ease-out;    
+}   
 
 @mixin link {
     color: var.$bodyColor;
