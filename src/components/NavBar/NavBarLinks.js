@@ -50,9 +50,9 @@ const NavbarLinks = () => {
       <a className="phone" href="tel:+447928757519">
         +44 7928 757 519
       </a>
-      <NavItem as={Link} to="/blog/">
+      {/* <NavItem as={Link} to="/blog/">
         News
-      </NavItem>
+      </NavItem> */}
       <NavItem as={Link} to="/categories/">
         Categories
       </NavItem>
