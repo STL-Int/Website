@@ -20,9 +20,9 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
+    `babel-plugin-styled-components`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-sitemap`,
-    `babel-plugin-styled-components`,
 
     {
       resolve: `gatsby-plugin-mdx`,
