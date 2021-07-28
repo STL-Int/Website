@@ -145,16 +145,16 @@ const options = {
     [BLOCKS.HEADING_1]: (node, children) => <Heading>{children}</Heading>,
     [BLOCKS.HR]: (node, children) => <Hr>{children}</Hr>,
     [BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
-    [BLOCKS.EMBEDDED_ASSET]: node => {
-      return (
-        <>
-          <h2>Embedded Asset</h2>
-          <pre>
-            <code>{JSON.stringify(node, null, 2)}</code>
-          </pre>
-        </>
-      )
-    },
+    // [BLOCKS.EMBEDDED_ASSET]: node => {
+    //   return (
+    //     <>
+    //       <h2>Embedded Asset</h2>
+    //       <pre>
+    //         <code>{JSON.stringify(node, null, 2)}</code>
+    //       </pre>
+    //     </>
+    //   )
+    // },
     [INLINES.HYPERLINK]: (node) => {
       if((node.data.uri).includes("player.vimeo.com/video")){
         return <IframeContainer><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen/></IframeContainer>
