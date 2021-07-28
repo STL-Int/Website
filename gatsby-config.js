@@ -3,6 +3,8 @@ require("dotenv").config({
 })
 
 module.exports = {
+  pathPrefix: "/Website-public",
+
   siteMetadata: {
     title: `STL International Ltd`,
     tagLine: `SAFE answers to HAZERDOUS questions`,
