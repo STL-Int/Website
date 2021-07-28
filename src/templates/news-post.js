@@ -16,7 +16,7 @@ export const query = graphql`query ($slug: String!) {
   contentfulNewsPost(slug: {eq: $slug}) {
     title
     publishedDate(formatString: "Do MMMM, YYYY")
-    thumbnail {
+    featuredImage {
       file {
         fileName
         url
@@ -38,13 +38,13 @@ export const query = graphql`query ($slug: String!) {
         id
         slug
         publishedDate(formatString: "Do MMMM, YYYY")
-        thumbnail {
+        featuredImage {
           gatsbyImageData(width: 750, quality: 80, layout: CONSTRAINED)
           file {
             fileName
           }
         }
-        description {
+        excerpt {
           childMarkdownRemark {
             excerpt(pruneLength: 200)
           }

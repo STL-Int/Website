@@ -44,14 +44,14 @@ const IndexPage = () => {
               id
               slug
               publishedDate(formatString: "Do MMMM, YYYY")
-              thumbnail {
+              featuredImage {
                 gatsbyImageData(width: 750, quality: 80, layout: CONSTRAINED)
 
                 file {
                   fileName
                 }
               }
-              description {
+              excerpt {
                 childMarkdownRemark {
                   excerpt(pruneLength: 200)
                 }
@@ -105,12 +105,12 @@ const IndexPage = () => {
                 return (
                   <li key={edge.node.id}>
                     <NewsPostCard
-                      imgSrc={edge.node.thumbnail.gatsbyImageData}
-                      imgAlt={edge.node.thumbnail.file.fileName}
+                      imgSrc={edge.node.featuredImage.gatsbyImageData}
+                      imgAlt={edge.node.featuredImage.file.fileName}
                       slug={edge.node.slug}
                       title={edge.node.title}
                       date={edge.node.publishedDate}
-                      excerpt={edge.node.description.childMarkdownRemark.excerpt}
+                      excerpt={edge.node.excerpt.childMarkdownRemark.excerpt}
                     />
                   </li>
                 )

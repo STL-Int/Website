@@ -14,7 +14,7 @@ export default function Category({ data }) {
     <Layout>
       <SEO title="Downloads" />
 
-      <BgImage image={data.file.childImageSharp.gatsbyImageData} className="banner-image" >
+      <BgImage image={data.banner.childImageSharp.gatsbyImageData} className="banner-image" >
         <div className="overlay">
           <h1 className="text">Downloads</h1>
         </div>
@@ -27,7 +27,7 @@ export default function Category({ data }) {
             return (
               <li key={docs.node.id} className="sector-card-wrapper">
                 <a href={docs.node.document.file.url} className="download-card-wrapper" target="_blank" rel="noreferrer">
-                    <GatsbyImage className="file-icon" image={data.contentfulAsset.gatsbyImageData} alt={docs.node.document.title}/>
+                    <GatsbyImage className="file-icon" image={data.downloadImage.childImageSharp.gatsbyImageData} alt={docs.node.document.title}/>
                     <div className="download-name-wrapper">
                         <h3 className="download-name">{docs.node.document.title}</h3>
                     </div>
@@ -46,7 +46,7 @@ export const data = graphql`{
     edges {
       node {
         id
-        document {
+        documents {
           file {
             url
           }
@@ -56,13 +56,16 @@ export const data = graphql`{
     }
   }
 
-  contentfulAsset(title: {eq: "pdf icon"}) {
-    gatsbyImageData(layout: CONSTRAINED, width:150)
-  }
 
-  file(name: {eq: "sunset-3138887_1920"}, extension: {eq: "jpg"}) {
+  banner: file(name: {eq: "sunset-3138887_1920"}, extension: {eq: "jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+
+  downloadIcon: file(name: {eq: "download"}, extension: {eq: "png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: CONSTRAINED, width:150)
     }
   }
 }
