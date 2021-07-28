@@ -22,16 +22,25 @@ export default function Category({ data }) {
 
       <div className="sector-grid-wrapper">
         
-        <ul className="sector-grid">
-          {data.allContentfulDownload.edges.map(docs => {
+        <ul className="document-grid">
+          {data.allContentfulDownload.edges.map(docType => {
             return (
-              <li key={docs.node.id} className="sector-card-wrapper">
-                <a href={docs.node.document.file.url} className="download-card-wrapper" target="_blank" rel="noreferrer">
-                    <GatsbyImage className="file-icon" image={data.downloadImage.childImageSharp.gatsbyImageData} alt={docs.node.document.title}/>
-                    <div className="download-name-wrapper">
-                        <h3 className="download-name">{docs.node.document.title}</h3>
-                    </div>
-                </a>
+              <li key={docType.node.id} className="sector-card-wrapper">
+                <h1 className="download__heading">{docType.node.title}</h1>
+                {docType.node.documents.map(docs => {
+                  return (
+                    <ul className="sector-grid">
+                      <li key={docs.id}>
+                        <a href={docs.file.url} className="download-card-wrapper" target="_blank" rel="noreferrer">
+                            <GatsbyImage className="file-icon" image={data.downloadIcon.childImageSharp.gatsbyImageData} alt={"download" + docs.title}/>
+                            <div className="download-name-wrapper">
+                                <h3 className="download-name">{docs.title}</h3>
+                            </div>
+                        </a>
+                      </li>
+                    </ul>
+                  )
+                })}
               </li>
             )
           })}
@@ -45,13 +54,15 @@ export const data = graphql`{
   allContentfulDownload {
     edges {
       node {
-        id
+        downloadCategory
         documents {
           file {
             url
           }
           title
+          id
         }
+        id
       }
     }
   }
