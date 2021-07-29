@@ -10,9 +10,9 @@ jobs:
         uses: ionos-deploy-now/retrieve-project-info-action@v1
         id: project
         with:
-          service-host: api-eu.ionos.space
-          project: 4b235f74-1575-4eab-ab22-9c8da8eee8f2
+          project: 4c1fcb99-12dd-4451-bd7a-d992deb77365
           api-key: ${{ secrets.IONOS_API_KEY }}
+          service-host: api-eu.ionos.space
       - name: checkout
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: actions/checkout@v2
@@ -25,12 +25,10 @@ jobs:
           node-version: 12.16.x
       - name: Prepare Project build environment
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        run: |
-          npm install --global yarn
-          yarn install --frozen-lockfile
+        run: npm ci
       - name: Build Node project
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        run: yarn build
+        run: npm run build
         env:
           CI: true
           SITE_URL: ${{ steps.project.outputs.site-url }}
@@ -38,10 +36,10 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
         with:
-          service-host: api-eu.ionos.space
           branch-id: ${{ steps.project.outputs.branch-id }}
           storage-quota: ${{ steps.project.outputs.storage-quota }}
-          project: 4b235f74-1575-4eab-ab22-9c8da8eee8f2
+          project: 4c1fcb99-12dd-4451-bd7a-d992deb77365
           dist-folder: public
           remote-host: ${{ steps.project.outputs.remote-host }}
           api-key: ${{ secrets.IONOS_API_KEY }}
+          service-host: api-eu.ionos.space
