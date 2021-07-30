@@ -1,7 +1,7 @@
 // Navbar.js
 
 import React, { useState } from "react"
-const styled = require(`${__dirname}../../../node_modules/styled-components`)
+const styled = require.resolve("styled-components")
 const NavbarLinks = require( `${__dirname}/src/components/NavbarLinks`)
 import Logo from "./Logo"
 
