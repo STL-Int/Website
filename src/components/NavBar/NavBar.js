@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Logo from "./Logo"
 import styled from "styled-components"
-const NavbarLinks = "./NavBarLinks"
+import NavbarLinks from "./NavBarLinks"
 
 const Navigation = styled.nav`
   height: 80px;
