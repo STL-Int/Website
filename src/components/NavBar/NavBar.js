@@ -2,10 +2,10 @@
 
 import React, { useState } from "react"
 import Logo from "./Logo"
-import styled from "styled-components/native"
+import styled from "styled-components"
 const NavbarLinks = "./NavBarLinks"
 
-const Navigation = styled.View`
+const Navigation = styled.nav`
   height: 80px;
   display: flex;
   background-color: #001035;

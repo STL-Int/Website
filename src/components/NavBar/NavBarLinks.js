@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components/native"
+import styled from "styled-components"
 
 import "./navLink.scss"
 
