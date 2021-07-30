@@ -1,7 +1,7 @@
 // NavbarLinks.js
 
 import React from "react"
-import styled from "styled-components"
+const styled = require(`${__dirname}/node_modules/styled-components`)
 import { Link } from "gatsby"
 
 import "./navLink.scss"
