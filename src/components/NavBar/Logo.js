@@ -3,6 +3,7 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import 'core-js'; 
 
 const LogoWrapper = styled.View`
   width: 80px;
