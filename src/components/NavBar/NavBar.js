@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 const styled = require.resolve("styled-components")
-const NavbarLinks = require( `${__dirname}/src/components/NavbarLinks`)
+const NavbarLinks = "./NavBarLinks"
 import Logo from "./Logo"
 
 const Navigation = styled.nav`

@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 
 module.exports = {
-  pathPrefix: "/Website-public",
+  pathPrefix: "/Website",
 
   siteMetadata: {
     title: `STL International Ltd`,
@@ -103,4 +103,6 @@ module.exports = {
       },
     },
   ],
+
+  
 }
