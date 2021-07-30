@@ -167,7 +167,7 @@ const options = {
 
 
 
-function NewsPost(props) {
+export default function NewsPost(props) {
   var image_name = props.data.contentfulNewsPost.featuredImage.file.fileName.split(
     "."
   )
@@ -266,5 +266,3 @@ function NewsPost(props) {
     </Layout>
   );
 }
-
-export default NewsPost
