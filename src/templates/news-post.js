@@ -167,7 +167,7 @@ const options = {
 
 
 
-const NewsPost = props => {
+function NewsPost(props) {
   var image_name = props.data.contentfulNewsPost.featuredImage.file.fileName.split(
     "."
   )
