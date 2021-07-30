@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Link } from "gatsby"
-const styled = require.resolve("styled-components")
+import styled from "styled-components/native"
 
 import "./navLink.scss"
 
