@@ -1,6 +1,6 @@
 // Logo.js
 import React from "react"
-const styled = require(`${__dirname}/node_modules/styled-components`)
+const styled = require(`${__dirname}../../../node_modules/styled-components`)
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, useStaticQuery, graphql } from "gatsby"
 
