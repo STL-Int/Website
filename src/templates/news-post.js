@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import { renderRichText } from "gatsby-source-contentful/rich-text"
+import renderRichText from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import styled from "styled-components"
 
