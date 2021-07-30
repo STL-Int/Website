@@ -7,8 +7,8 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-var { Helmet } = require.resolve("react-helmet")
 import { useStaticQuery, graphql } from "gatsby"
+var { Helmet } = require.resolve("react-helmet")
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(

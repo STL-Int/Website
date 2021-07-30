@@ -1,9 +1,9 @@
 // Navbar.js
 
 import React, { useState } from "react"
+import Logo from "./Logo"
 const styled = require.resolve("styled-components")
 const NavbarLinks = "./NavBarLinks"
-import Logo from "./Logo"
 
 const Navigation = styled.nav`
   height: 80px;

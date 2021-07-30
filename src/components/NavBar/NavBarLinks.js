@@ -1,8 +1,8 @@
 // NavbarLinks.js
 
 import React from "react"
-const styled = require.resolve("styled-components")
 import { Link } from "gatsby"
+const styled = require.resolve("styled-components")
 
 import "./navLink.scss"
 

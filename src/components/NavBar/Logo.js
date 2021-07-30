@@ -1,8 +1,8 @@
 // Logo.js
 import React from "react"
-const styled = require.resolve("styled-components")
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, useStaticQuery, graphql } from "gatsby"
+const styled = require.resolve("styled-components")
 
 const LogoWrapper = styled.nav`
   width: 80px;
