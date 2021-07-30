@@ -1,6 +1,6 @@
 // Logo.js
 import React from "react"
-import styled from "../../../node_modules/styled-components"
+import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, useStaticQuery, graphql } from "gatsby"
 

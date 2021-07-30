@@ -1,7 +1,7 @@
 // NavbarLinks.js
 
 import React from "react"
-import styled from "../../../node_modules/styled-components"
+import styled from "styled-components"
 import { Link } from "gatsby"
 
 import "./navLink.scss"
