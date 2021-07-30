@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-const LogoWrapper = styled.nav`
+const LogoWrapper = styled.View`
   width: 80px;
   margin-left: 2em;
 
