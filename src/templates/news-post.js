@@ -58,11 +58,6 @@ export const query = graphql`query ($slug: String!) {
       gatsbyImageData(layout: FULL_WIDTH)
     }
   }
-  clock: file(name: {eq: "clock"}, extension: {eq: "png"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
 }
 `
 
@@ -223,7 +218,7 @@ export default function NewsPost(props) {
             image={props.data.contentfulNewsPost.featuredImage.gatsbyImageData}
             className="hero-image"
             alt={props.data.contentfulNewsPost.featuredImage.file.fileName}
-            />
+          />
 
           <div className="image-description">
             <p className="image-name">{image_name[0]}</p>
