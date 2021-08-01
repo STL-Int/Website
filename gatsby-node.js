@@ -28,18 +28,18 @@ async function turnNewsIntoPage({ graphql, actions }) {
 async function turnCategoryIntoPage({ graphql, actions }) {
   const { createPage } = actions
   const response = await graphql(`
-  query {
-    allContentfulCategory {
-      edges {
-        node {
-          slug
-          name
+    query {
+      allContentfulCategory {
+        edges {
+          node {
+            slug
+            name
+          }
         }
       }
     }
-  }
   `)
-  
+
   response.data.allContentfulCategory.edges.forEach(page => {
     createPage({
       path: `/categories/${page.node.slug}`,

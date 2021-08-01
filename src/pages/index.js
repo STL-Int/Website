@@ -19,9 +19,7 @@ const IndexPage = () => {
           }
         }
 
-        allContentfulCategory(
-          limit: 9
-        ) {
+        allContentfulCategory(limit: 9) {
           edges {
             node {
               name
@@ -69,16 +67,18 @@ const IndexPage = () => {
       <HeroImage link={data.contentfulAsset.file.url} />
 
       <div id="Categories" className="index-section">
-        <h2 id="category-title" className="section-title">Categories</h2>
-        <hr className="index-rule"/>
+        <h2 id="category-title" className="section-title">
+          Categories
+        </h2>
+        <hr className="index-rule" />
 
         <div id="sector-grid-wrapper-index" className="sector-grid-wrapper">
-          <ul id="sector-grid-index"  className="sector-grid">
+          <ul id="sector-grid-index" className="sector-grid">
             {data.allContentfulCategory.edges.map(edge => {
               return (
                 <li key={edge.node.id} className="sector-card-wrapper">
-                  <CategoryCard 
-                    imgData={edge.node.image.gatsbyImageData} 
+                  <CategoryCard
+                    imgData={edge.node.image.gatsbyImageData}
                     slug={edge.node.slug}
                     name={edge.node.name}
                   />
@@ -87,18 +87,23 @@ const IndexPage = () => {
             })}
           </ul>
         </div>
-        <Link to="/categories/" id="see-more-categories" className="see-more-link">
+        <Link
+          to="/categories/"
+          id="see-more-categories"
+          className="see-more-link"
+        >
           <button className="btn">
             <p>See All Categories</p>
           </button>
         </Link>
       </div>
 
-      
       <div id="Categories" className="index-section">
-        <h2 id="news-title" className="section-title">News</h2>
-        <hr className="index-rule"/> 
-        
+        <h2 id="news-title" className="section-title">
+          News
+        </h2>
+        <hr className="index-rule" />
+
         <div className="grid-super-wrapper">
           <div className="grid-boundary-box">
             <ul className="grid">
@@ -116,7 +121,7 @@ const IndexPage = () => {
                       />
                     </li>
                   )
-                }else{
+                } else {
                   return console.log("list item is null")
                 }
               })}

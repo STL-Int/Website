@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -34,9 +34,8 @@ function getButtonText(fileName, searchData) {
 
   for (let n = 0; n < searchData.length; n++) {
     let textToSearchFor = searchData[n].searchString
-    
+
     let res = searchString(fileName, textToSearchFor)
-    
 
     if (res === true) {
       indexFound = n
@@ -122,7 +121,8 @@ export default function Product({ data }) {
             <GatsbyImage
               image={product.productImage.gatsbyImageData}
               className="image"
-              alt={product.productName} />
+              alt={product.productName}
+            />
           </div>
 
           {GetButtonData(fileParent, product.buttonsUsed)}
@@ -136,7 +136,7 @@ export default function Product({ data }) {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
 //
@@ -147,7 +147,7 @@ export default function Product({ data }) {
 //
 
 export const data = graphql`
-  query($slug: String) {
+  query ($slug: String) {
     contentfulProduct(slug: { eq: $slug }) {
       productImage {
         gatsbyImageData(layout: FULL_WIDTH)

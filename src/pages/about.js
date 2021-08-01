@@ -11,68 +11,91 @@ import SEO from "../components/seo"
 
 import "./pageStyles/about.scss"
 
-export const query = graphql`query{
-  contentfulAboutPage{
-    pageBody{
-      raw
+export const query = graphql`
+  query {
+    contentfulAboutPage {
+      pageBody {
+        raw
+      }
+    }
+    file(name: { eq: "sunset-3138887_1920" }, extension: { eq: "jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, formats: AUTO, placeholder: BLURRED)
+      }
     }
   }
-  file(name: {eq: "sunset-3138887_1920"}, extension: {eq: "jpg"}) {
-    childImageSharp {
-      gatsbyImageData(
-        layout: FULL_WIDTH
-        formats: AUTO
-        placeholder: BLURRED
-      )
-    }
-  }
-}
 `
 
 //
 // ---------------Marks-----------------
 //
-const Bold = ({ children }) => <span style={{fontWeight: 300}}>{children}</span>
-const Italic = ({ children }) => <span style={{fontStyle: "italic"}}>{children}</span>
-const Underline = ({ children }) => <span style={{textDecoration: "underline"}}>{children}</span>
-const Code = ({ children }) => <span 
-  style={{
-    fontFamily: "Lucida Console, Courier New, monospace", 
-    padding: "1em",
-  }}>
+const Bold = ({ children }) => (
+  <span style={{ fontWeight: 300 }}>{children}</span>
+)
+const Italic = ({ children }) => (
+  <span style={{ fontStyle: "italic" }}>{children}</span>
+)
+const Underline = ({ children }) => (
+  <span style={{ textDecoration: "underline" }}>{children}</span>
+)
+const Code = ({ children }) => (
+  <span
+    style={{
+      fontFamily: "Lucida Console, Courier New, monospace",
+      padding: "1em",
+    }}
+  >
     {children}
   </span>
+)
 
 //
 // ---------------Blocks-----------------
 //
-const Text = ({ children }) => <p 
+const Text = ({ children }) => (
+  <p
     style={{
-      width: "100%"
+      width: "100%",
     }}
-  >{children}</p>
-const Paragraph = ({ children }) => <p 
+  >
+    {children}
+  </p>
+)
+const Paragraph = ({ children }) => (
+  <p
     style={{
       padding: "5px 0",
-      width: "100%"
+      width: "100%",
     }}
-  >{children}</p>
-const Heading = ({ children }) => <p 
+  >
+    {children}
+  </p>
+)
+const Heading = ({ children }) => (
+  <p
     style={{
       paddingBottom: "5px",
-      fontFamily: "Nunito Sans, sans-serif",    
+      fontFamily: "Nunito Sans, sans-serif",
       fontWeight: "500",
       fontSize: "25px",
     }}
-  >{children}</p>
-const Hr = ({ children }) => <span 
+  >
+    {children}
+  </p>
+)
+const Hr = ({ children }) => (
+  <span
     style={{
       width: "100%",
       borderBottom: "1px solid #8599b8",
-      padding: "1em 0"
+      padding: "1em 0",
     }}
-  >{children}</span>
-const Quote = ({ children }) => <p 
+  >
+    {children}
+  </span>
+)
+const Quote = ({ children }) => (
+  <p
     style={{
       borderLeft: "3px solid #6dc7fc",
       paddingLeft: ".5em",
@@ -81,25 +104,29 @@ const Quote = ({ children }) => <p
       fontStyle: "italic",
       fontSize: "20px",
     }}
-  >{children}</p>
+  >
+    {children}
+  </p>
+)
 
 //
 // ---------------Inline-----------------
 //
 const IframeContainer = styled.span`
-  padding-bottom: 56.25%; 
-  position: relative; 
-  display: block; 
+  padding-bottom: 56.25%;
+  position: relative;
+  display: block;
   width: 100%;
   margin: 2rem 0;
 
   > iframe {
     height: 100%;
     width: 100%;
-    position: absolute; 
-    top: 0; 
+    position: absolute;
+    top: 0;
     left: 0;
-  }`
+  }
+`
 
 const options = {
   renderMark: {
@@ -123,25 +150,44 @@ const options = {
         </>
       )
     },
-    [INLINES.HYPERLINK]: (node) => {
-      if((node.data.uri).includes("player.vimeo.com/video")){
-        return <IframeContainer><iframe title="Unique Title 001" src={node.data.uri} frameBorder="0" allowFullScreen/></IframeContainer>
-      } else if((node.data.uri).includes("youtube.com/embed")) {
-        return <IframeContainer><iframe title="Unique Title 002" src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></IframeContainer>
+    [INLINES.HYPERLINK]: node => {
+      if (node.data.uri.includes("player.vimeo.com/video")) {
+        return (
+          <IframeContainer>
+            <iframe
+              title="Unique Title 001"
+              src={node.data.uri}
+              frameBorder="0"
+              allowFullScreen
+            />
+          </IframeContainer>
+        )
+      } else if (node.data.uri.includes("youtube.com/embed")) {
+        return (
+          <IframeContainer>
+            <iframe
+              title="Unique Title 002"
+              src={node.data.uri}
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </IframeContainer>
+        )
       }
     },
   },
 }
 
-
-
 const AboutPage = props => {
-
   return (
     <Layout>
       <SEO title="About Us" />
 
-      <BgImage image={props.data.file.childImageSharp.gatsbyImageData} className="banner-image" >
+      <BgImage
+        image={props.data.file.childImageSharp.gatsbyImageData}
+        className="banner-image"
+      >
         <div className="overlay">
           <h1 className="text">Get To Know Us</h1>
         </div>
@@ -152,11 +198,8 @@ const AboutPage = props => {
           {renderRichText(props.data.contentfulAboutPage.pageBody, options)}
         </div>
       </div>
-
-
-      
     </Layout>
-  );
+  )
 }
 
 export default AboutPage

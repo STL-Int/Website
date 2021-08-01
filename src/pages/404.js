@@ -6,9 +6,7 @@ import SEO from "../components/seo"
 
 import "./pageStyles/404.scss"
 
-
 const NotFoundPage = () => (
-  
   <Layout>
     <SEO title="404: Not found" />
     <div className="error-page-wrapper">

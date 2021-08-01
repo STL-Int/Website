@@ -81,10 +81,10 @@ module.exports = {
     },
 
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        configFile: 'robots-txt.config.js'
-      }
+        configFile: "robots-txt.config.js",
+      },
     },
 
     {
@@ -103,6 +103,4 @@ module.exports = {
       },
     },
   ],
-
-  
 }

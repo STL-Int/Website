@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { BgImage } from 'gbimage-bridge';
+import { BgImage } from "gbimage-bridge"
 
 import Layout from "../components/layout"
 import ProductCard from "../components/productCard/productCard"
@@ -10,11 +10,13 @@ import "../components/bannerImage/banner.scss"
 import "./templateStyles/category.scss"
 
 export default function Category({ data }) {
-
   return (
     <Layout>
       <SEO title={data.contentfulCategory.name} />
-      <BgImage image={data.file.childImageSharp.gatsbyImageData} className="banner-image" >
+      <BgImage
+        image={data.file.childImageSharp.gatsbyImageData}
+        className="banner-image"
+      >
         <div className="overlay">
           <h1 className="text">{data.contentfulCategory.name}</h1>
         </div>
@@ -28,7 +30,7 @@ export default function Category({ data }) {
         </div>
       </div>
 
-      <hr id="line"/>
+      <hr id="line" />
 
       <div className="content-wrapper">
         <div className="grid-super-wrapper">
@@ -51,33 +53,34 @@ export default function Category({ data }) {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-export const query = graphql`query ($category: String!) {
-  allContentfulProduct(
-    filter: {categories: {elemMatch: {name: {eq: $category}}}}
-    sort: {fields: productName, order: ASC}
-  ) {
-    edges {
-      node {
-        id
-        productImage {
-          gatsbyImageData(layout: FULL_WIDTH)
+export const query = graphql`
+  query ($category: String!) {
+    allContentfulProduct(
+      filter: { categories: { elemMatch: { name: { eq: $category } } } }
+      sort: { fields: productName, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          productImage {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
+          productName
+          slug
         }
-        productName
-        slug
+      }
+    }
+    contentfulCategory(name: { eq: $category }) {
+      name
+      slug
+    }
+    file(name: { eq: "factory_light_LED_2" }, extension: { eq: "png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }
-  contentfulCategory(name: {eq: $category}) {
-    name
-    slug
-  }
-  file(name: {eq: "factory_light_LED_2"}, extension: {eq: "png"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-}
 `

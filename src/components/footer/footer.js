@@ -1,28 +1,29 @@
 import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./footer.scss"
 
 export default function Footer() {
-  const data = useStaticQuery(graphql`{
-  file(name: {eq: "STLLogo"}, extension: {eq: "png"}) {
-    childImageSharp {
-      gatsbyImageData(
-        width: 80
-        quality: 80
-        layout: FULL_WIDTH
-        placeholder: BLURRED
-      )
+  const data = useStaticQuery(graphql`
+    {
+      file(name: { eq: "STLLogo" }, extension: { eq: "png" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 80
+            quality: 80
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+          )
+        }
+      }
+      site {
+        siteMetadata {
+          companyNumber
+        }
+      }
     }
-  }
-  site {
-    siteMetadata {
-      companyNumber
-    }
-  }
-}
-`)
+  `)
 
   return (
     <footer>
@@ -64,7 +65,8 @@ export default function Footer() {
                 <Link to="/">
                   <GatsbyImage
                     image={data.file.childImageSharp.gatsbyImageData}
-                    alt="STL International Ltd Logo" />
+                    alt="STL International Ltd Logo"
+                  />
                 </Link>
               </div>
             </li>
@@ -82,5 +84,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

@@ -1,6 +1,5 @@
 import React from "react"
 
-
 import "./heroImageStyles.scss"
 
 const HeroImage = data => {
@@ -16,8 +15,8 @@ const HeroImage = data => {
             </h1>
           </li>
           <li className="listItem button-wrapper">
-            <a href={data.link} target="_blank" rel="noreferrer" >
-              <button className="button" >
+            <a href={data.link} target="_blank" rel="noreferrer">
+              <button className="button">
                 <h2>See our product shortform</h2>
               </button>
             </a>

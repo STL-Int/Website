@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./shareButtons.scss"
 
@@ -39,7 +39,11 @@ export default function ShareButtons(
         rel="noopener noreferrer"
         aria-label="Share on Facebook"
       >
-        <GatsbyImage className="share-icon" src={facebookImageData} alt="Facebook Logo" />
+        <GatsbyImage
+          className="share-icon"
+          src={facebookImageData}
+          alt="Facebook Logo"
+        />
       </a>
       <a
         className="social-share-buttons"
@@ -48,7 +52,11 @@ export default function ShareButtons(
         rel="noopener noreferrer"
         aria-label="Share on Twitter"
       >
-        <GatsbyImage className="share-icon" src={twitterImageData} alt="Twitter Logo" />
+        <GatsbyImage
+          className="share-icon"
+          src={twitterImageData}
+          alt="Twitter Logo"
+        />
       </a>
       <a
         className="social-share-buttons"
@@ -57,8 +65,12 @@ export default function ShareButtons(
         rel="noopener noreferrer"
         aria-label="Share via email"
       >
-        <GatsbyImage className="share-icon" src={mailImageData} alt="email icon" />
+        <GatsbyImage
+          className="share-icon"
+          src={mailImageData}
+          alt="email icon"
+        />
       </a>
     </div>
-  );
+  )
 }
