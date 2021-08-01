@@ -56,6 +56,9 @@ const NavbarLinks = () => {
       <NavItem as={Link} to="/categories/">
         Categories
       </NavItem>
+      <NavItem as={Link} to="/downloads/#brochures">
+        Brochures
+      </NavItem>
       <NavItem as={Link} to="/contact/">
         Contact
       </NavItem>
