@@ -43,7 +43,7 @@ export default function Category({ data }) {
 }
 
 export const data = graphql`{
-  allContentfulCategory {
+  allContentfulCategory (sort: {order: ASC, fields: slug}) {
     edges {
       node {
         name
