@@ -55,7 +55,10 @@ export default function Category({ data }) {
 }
 
 export const query = graphql`query ($category: String!) {
-  allContentfulProduct(filter: {categories: {elemMatch: {name: {eq: $category}}}}) {
+  allContentfulProduct(
+    filter: {categories: {elemMatch: {slug: {eq: "2-22"}}}}
+    sort: {fields: productName, order: ASC}
+  ) {
     edges {
       node {
         id
