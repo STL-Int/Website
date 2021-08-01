@@ -25,7 +25,6 @@
 .card-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
-    grid-gap: 1em;
     list-style: none;
     width: 100%;
     padding: 0;
@@ -45,7 +44,7 @@
     width: auto;
     height: 471px;
     padding: 10px ;
-    margin: 0; 
+    margin: .5em; 
     @include mix.fadeIn;
     
     &:visited{

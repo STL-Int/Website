@@ -96,10 +96,9 @@ ul{
     border-radius: 3em;
     cursor: pointer;
     @include mix.fadeIn;
-    box-shadow: var.$shadow 1.95px 1.95px 2.6px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 
     &:hover{
         border-color: var.$accentColor;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 }

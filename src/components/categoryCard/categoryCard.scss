@@ -2,8 +2,6 @@
 @use "../../globalStyles/mixins" as mix;
 
 .sector-card{
-    width: 100%;
-    justify-content: center;
     text-decoration: none;
 
     &:visited{
