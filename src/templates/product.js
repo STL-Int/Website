@@ -18,10 +18,10 @@ function searchString(sentence, word) {
   let sentenceLower = sentence.toLowerCase()
   let wordLen = word.length
   let res = false
-  let i
+  {console.log([sentence, sentenceLower, word, wordLen])}
 
-  for (i = 0; i < sentenceLen; i++) {
-    if (sentenceLower.substring(i, i + wordLen) === word) {
+  for (var i = 0; i < sentenceLen; i++) {
+    if (sentenceLower.substring(i, i + wordLen) === word.toLowerCase()) {
       res = true
     }
   }
@@ -35,8 +35,10 @@ function getButtonText(fileName, searchData) {
 
   for (let n = 0; n < searchData.length; n++) {
     let textToSearchFor = searchData[n].searchString
-
+    
     let res = searchString(fileName, textToSearchFor)
+    
+    console.log([fileName, textToSearchFor, res])
 
     if (res === true) {
       indexFound = n
@@ -44,6 +46,7 @@ function getButtonText(fileName, searchData) {
   }
 
   buttonText = searchData[indexFound].displayText
+  console.log(buttonText)
 
   return buttonText
 }
