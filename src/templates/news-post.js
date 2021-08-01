@@ -173,7 +173,7 @@ export default function NewsPost(props) {
       <div className="page-wrapper">
         <div className="post-content">
           <Link to="/blog/" className="all-posts">
-            All Posts
+            &lt; All Posts
           </Link>
           <div className="title-wrapper">
             <h1 className="post-title">

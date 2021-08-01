@@ -128,7 +128,7 @@ export default function Product({ data }) {
           {GetButtonData(fileParent, product.buttonsUsed)}
 
           <div
-            className="post-body"
+            className="product-body"
             dangerouslySetInnerHTML={{
               __html: product.bodyText.childMarkdownRemark.html,
             }}

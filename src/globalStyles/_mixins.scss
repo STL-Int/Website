@@ -37,11 +37,11 @@
 }
 
 @mixin boxShadow{
-    box-shadow: 5px 5px 40px 3px var.$shadow;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 @mixin boxShadowHover{
-    box-shadow: 5px 5px 40px 3px var.$accentColor;
+    box-shadow: var.$accentColor 0px 5px 15px;
 }
 
 @mixin fadeIn{
@@ -70,6 +70,6 @@
 }
 
 @mixin grow {
-    transform: scale(103%);
+    transform: scale(101%);
 }
 
