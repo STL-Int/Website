@@ -23,34 +23,39 @@ export default function Category({ data }) {
       </BgImage>
 
       <ul className="document-grid">
-        {data.allContentfulDownload.edges.map(docType => {
-          var docType_name = docType.node.downloadCategory
-          var type_id = docType_name.toLowerCase()
+        {data.allContentfulDownloadType.edges.map(docType => {
+          var download_category_name = docType.node.downloadCategory
+          var category_id = download_category_name.toLowerCase()
+
           return (
             <li key={docType.node.id} className="doc-type-wrapper">
-              <h1 id={type_id} className="download__heading">
-                {docType_name}
+              <h1 id={category_id} className="download__heading">
+                {download_category_name}
               </h1>
 
               <ul className="card-grid">
                 {docType.node.documents.map(docs => {
+                  const max_name_chars = 47
+                  var name = docs.documentName
+                  if (name.length > max_name_chars) {
+                    name = name.substring(0, max_name_chars) + "..."
+                  }
+
                   return (
                     <li key={docs.id}>
                       <a
-                        href={docs.file.url}
+                        href={docs.document.file.url}
                         className="download-card"
                         target="_blank"
                         rel="noreferrer"
-                        aria-label={"download" + docs.title}
+                        aria-label={"download" + name}
                       >
                         <GatsbyImage
                           className="file-icon"
-                          image={
-                            data.downloadIcon.childImageSharp.gatsbyImageData
-                          }
+                          image={docs.coverImage.gatsbyImageData}
                         />
                         <div className="download-name-wrapper">
-                          <p className="download-name">{docs.title}</p>
+                          <h3 className="download-name">{name}</h3>
                         </div>
                       </a>
                     </li>
@@ -67,18 +72,22 @@ export default function Category({ data }) {
 
 export const data = graphql`
   {
-    allContentfulDownload {
+    allContentfulDownloadType {
       edges {
         node {
           downloadCategory
           documents {
-            file {
-              url
-            }
-            title
             id
+            documentName
+            document {
+              file {
+                url
+              }
+            }
+            coverImage {
+              gatsbyImageData(layout: CONSTRAINED, width: 400)
+            }
           }
-          id
         }
       }
     }
