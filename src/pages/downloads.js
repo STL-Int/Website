@@ -24,10 +24,12 @@ export default function Category({ data }) {
         
       <ul className="document-grid">
         {data.allContentfulDownload.edges.map(docType => {
+          var docType_name=docType.node.downloadCategory
+          var type_id = docType_name.toLowerCase()
           return (
 
             <li key={docType.node.id} className="doc-type-wrapper">
-              <h1 className="download__heading">{docType.node.downloadCategory}</h1>
+              <h1 id={type_id} className="download__heading">{docType_name}</h1>
 
               <ul className="card-grid">
                 {docType.node.documents.map(docs => {
