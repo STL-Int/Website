@@ -39,11 +39,12 @@
     align-items: center;
     justify-content: space-around;
     text-decoration: none;
-    box-shadow: 2px 2px 40px rgba($color: #8d8d8d, $alpha: 0.5);
-    border-radius: 3em;
+    @include mix.boxShadow;
+    border-radius: 10px;
+    background-color: white;
     width: auto;
-    height: 300px;
-    padding: 2em ;
+    height: 471px;
+    padding: 10px ;
     margin: 0; 
     @include mix.fadeIn;
     
@@ -52,16 +53,18 @@
     }
 
     &:hover{
-        .download-name{
-            color: var.$accentColor;
-        }
+        @include mix.boxShadowHover;
 
-        scale: 0.965;
+        .file-icon{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
     }
 }
 
 .file-icon{
-    width: 75px;
+    @include mix.fadeIn;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .download-name{
