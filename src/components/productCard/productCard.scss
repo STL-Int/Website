@@ -24,10 +24,14 @@
 .product-image{
     width: 100%;
     border-radius: var.$borderRadius var.$borderRadius 0 0;
+    object-fit: cover;
+    object-position: center top;
+    aspect-ratio: 1/0.85;
+
 }
 
 .product-name{
     font-weight: 300;
-    font-size: 1.5em;
+    font-size: 1.2rem !important;
     margin: 0.2em .2em;
 }
