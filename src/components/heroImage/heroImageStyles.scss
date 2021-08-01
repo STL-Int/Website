@@ -9,7 +9,7 @@
     background-size: cover;
     width: 100%;
     height: 80vw;
-    max-height: 70vh;
+    max-height: 650px;
     display: flex;
     justify-content: center;
 }
@@ -79,6 +79,9 @@
 
 
 @media (max-width: var.$tabletWidth){
+    .hero-image-wrapper{
+        height: 600px;
+    }
     .textBlock{
         margin-top: 5em;
         top: 10%;
