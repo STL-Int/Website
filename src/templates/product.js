@@ -18,7 +18,6 @@ function searchString(sentence, word) {
   let sentenceLower = sentence.toLowerCase()
   let wordLen = word.length
   let res = false
-  {console.log([sentence, sentenceLower, word, wordLen])}
 
   for (var i = 0; i < sentenceLen; i++) {
     if (sentenceLower.substring(i, i + wordLen) === word.toLowerCase()) {
@@ -38,7 +37,6 @@ function getButtonText(fileName, searchData) {
     
     let res = searchString(fileName, textToSearchFor)
     
-    console.log([fileName, textToSearchFor, res])
 
     if (res === true) {
       indexFound = n
@@ -46,7 +44,6 @@ function getButtonText(fileName, searchData) {
   }
 
   buttonText = searchData[indexFound].displayText
-  console.log(buttonText)
 
   return buttonText
 }
