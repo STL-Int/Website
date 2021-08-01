@@ -47,8 +47,8 @@ const NavItem = styled(Link)`
 const NavbarLinks = () => {
   return (
     <>
-      <a className="phone" href="tel:+447928757519">
-        +44 7928 757 519
+      <a className="phone" href="tel:+441622749633">
+        +44 (0)1622 749 633
       </a>
       <NavItem as={Link} to="/blog/">
         News
