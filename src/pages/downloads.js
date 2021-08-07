@@ -72,7 +72,7 @@ export default function Category({ data }) {
 
 export const data = graphql`
   {
-    allContentfulDownloadType {
+    allContentfulDownloadType(sort: {fields: order, order: ASC}) {
       edges {
         node {
           downloadCategory
