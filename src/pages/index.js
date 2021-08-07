@@ -19,7 +19,7 @@ const IndexPage = () => {
           }
         }
 
-        allContentfulCategory(limit: 9) {
+        allContentfulCategory(limit: 9, sort: { order: ASC, fields: slug }) {
           edges {
             node {
               name
