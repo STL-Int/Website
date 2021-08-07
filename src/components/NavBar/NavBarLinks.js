@@ -50,14 +50,17 @@ const NavbarLinks = () => {
       <a className="phone" href="tel:+441622749633">
         +44 (0)1622 749 633
       </a>
-      <NavItem as={Link} to="/blog/">
-        News
-      </NavItem>
       <NavItem as={Link} to="/categories/">
         Categories
       </NavItem>
       <NavItem as={Link} to="/downloads/#brochures">
         Brochures
+      </NavItem>
+      <NavItem as={Link} to="/downloads/">
+        Downloads
+      </NavItem>
+      <NavItem as={Link} to="/blog/">
+        News
       </NavItem>
       <NavItem as={Link} to="/contact/">
         Contact
