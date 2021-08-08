@@ -77,7 +77,7 @@ export const query = graphql`
       name
       slug
     }
-    file(name: { eq: "factory_light_LED_2" }, extension: { eq: "png" }) {
+    file(name: { eq: "factory_light_LED_3" }, extension: { eq: "png" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
