@@ -52,7 +52,7 @@ const Navbox = styled.div`
     position: fixed;
     width: 100%;
     justify-content: flex-start;
-    padding-top: 10vh;
+    padding-top: 5vh;
     background-color: #00091f;
     transition: all 0.3s ease-in;
     top: 10vh;
@@ -71,7 +71,7 @@ const Hamburger = styled.div`
 
   ::before,
   ::after {
-    width: 30px;
+    width: 15px;
     height: 3px;
     background-color: #fff;
     content: "";
@@ -79,15 +79,23 @@ const Hamburger = styled.div`
     transition: all 0.3s linear;
   }
 
+  ::before{
+    top: 0;
+    left: 0;
+  }
+  ::after{
+    bottom: 0;
+    right: 0;
+  }
+
   ::before {
     transform: ${props =>
-      props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
+      props.open ? "rotate(90deg)  translate(2px, -7.4px)" : "rotate(0deg)"};
     top: -10px;
   }
 
   ::after {
-    opacity: ${props => (props.open ? "0" : "1")};
-    transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
+    transform: ${props => (props.open ? "rotate(90deg) translate(-2px, 7.4px)" : "rotate(0deg)")};
     top: 10px;
   }
 `
