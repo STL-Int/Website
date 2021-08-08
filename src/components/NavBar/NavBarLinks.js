@@ -15,8 +15,8 @@ const NavItem = styled(Link)`
   transition: all 200ms ease-in;
   position: relative;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 1em;
+  font-weight: 200;
+  font-size: 1rem;
 
   :after {
     position: absolute;
@@ -31,15 +31,20 @@ const NavItem = styled(Link)`
     transition: all 0.3s ease-in;
   }
 
-  :hover {
+  :hover, a:hover {
     color: #6dc7fc;
     ::after {
       width: 100%;
     }
   }
 
+  a{
+    text-decoration: none;
+    color: #fff;
+  }
+
   @media (max-width: 768px) {
-    padding: 20px 0;
+    padding: 15px 0;
     font-size: 1.5rem;
     z-index: 6;
   }
@@ -47,9 +52,11 @@ const NavItem = styled(Link)`
 const NavbarLinks = () => {
   return (
     <>
-      <a className="phone" href="tel:+441622749633">
-        +44 (0)1622 749 633
-      </a>
+      <NavItem>
+        <a href="tel:+441622749633">
+          +44 (0)1622 749 633
+        </a>
+      </NavItem>
       <NavItem as={Link} to="/categories/">
         Categories
       </NavItem>
