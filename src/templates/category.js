@@ -24,7 +24,7 @@ export default function Category({ data }) {
 
       <div className="back-link-super-wrapper">
         <div className="back-link-wrapper">
-          <Link to="/categories/" className="all-categories">
+          <Link to="/categories/" className="back-link">
             <h3>&lt; Back to all categories</h3>
           </Link>
         </div>
