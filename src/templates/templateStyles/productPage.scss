@@ -56,6 +56,14 @@
     text-decoration: none;
 }
 
+#back-to-category{
+    border: 0;
+
+    &:hover{
+        background-color: transparent;
+    }
+}
+
 .product-body{
     grid-area: text;
 

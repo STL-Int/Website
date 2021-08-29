@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -110,6 +110,15 @@ export default function Product({ data }) {
       <SEO title={product.productName} />
 
       <div className="page-content">
+
+        <div className="back-link-super-wrapper">
+          <div className="back-link-wrapper">
+            <button id="back-to-category" className="back-link" onClick={() => `${typeof window !== "undefined"?window.history.go(-1):null}`}><h3>&lt; Go Back</h3></button>
+          </div>
+        </div>
+
+        <hr id="line" />
+
         <div className="header-wrapper">
           <div className="product-title">
             <h1>{product.productName}</h1>
