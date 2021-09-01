@@ -158,6 +158,18 @@ const IframeContainer = styled.span`
   }
 `
 
+const Hyperlink = ({ children }) => (
+  <a
+    style={{
+      padding: "5px 0",
+      width: "100%",
+      color: "#316CE6",
+    }}
+  >
+    {children}
+  </a>
+)
+
 const options = {
   renderMark: {
     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
@@ -180,7 +192,7 @@ const options = {
     //     </>
     //   )
     // },
-    [INLINES.HYPERLINK]: node => {
+    [INLINES.HYPERLINK]: (node, children) => {
       if (node.data.uri.includes("player.vimeo.com/video")) {
         return (
           <IframeContainer>
@@ -204,6 +216,8 @@ const options = {
             ></iframe>
           </IframeContainer>
         )
+      } else{
+        <Hyperlink href={node.data.uri}> {children[0]} </Hyperlink>
       }
     },
   },
