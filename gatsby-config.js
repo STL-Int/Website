@@ -7,7 +7,7 @@ module.exports = {
 
   siteMetadata: {
     title: `STL International Ltd`,
-    tagLine: `SAFE answers to HAZERDOUS questions`,
+    description: `SAFE answers to HAZERDOUS questions`,
     author: `Ruben Heyse`,
     companyNumber: `04523345`,
     siteUrl: `http://www.stl.co.uk`,
