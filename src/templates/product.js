@@ -107,7 +107,7 @@ export default function Product({ data }) {
 
   return (
     <Layout>
-      <SEO title={product.productName} />
+      <SEO title={product.productName} description={product.bodyText.childMarkdownRemark.excerpt}/>
 
       <div className="page-content">
 
@@ -175,6 +175,7 @@ export const data = graphql`
 
       bodyText {
         childMarkdownRemark {
+          excerpt
           html
           rawMarkdownBody
         }
