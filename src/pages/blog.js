@@ -71,12 +71,12 @@ const News = () => {
                 return (
                   <li key={edge.node.id}>
                     <NewsPostCard
-                      imgSrc={edge.node.featuredImage.gatsbyImageData}
-                      imgAlt={edge.node.featuredImage.file.fileName}
+                      imgSrc={edge.node.featuredImage?.gatsbyImageData}
+                      imgAlt={edge.node.featuredImage?.file.fileName}
                       slug={edge.node.slug}
-                      title={edge.node.title}
-                      date={edge.node.publishedDate}
-                      excerpt={edge.node.excerpt.childMarkdownRemark.excerpt}
+                      title={edge.node?.title}
+                      date={edge.node?.publishedDate}
+                      excerpt={edge.node.excerpt?.childMarkdownRemark.excerpt}
                     />
                   </li>
                 )
