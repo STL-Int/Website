@@ -31,6 +31,11 @@ export const query = graphql`
         id
         categoryName
       }
+      excerpt {
+        childMarkdownRemark {
+          excerpt(pruneLength: 200)
+        }
+      }
     }
     allContentfulNewsPost(
       sort: { fields: publishedDate, order: ASC }
@@ -229,7 +234,7 @@ export default function NewsPost(props) {
 
   return (
     <Layout>
-      <SEO title={props.data.contentfulNewsPost.title} />
+      <SEO title={props.data.contentfulNewsPost.title} description={props.data.contentfulNewsPost?.excerpt.childMarkdownRemark.excerpt || null}/>
       <div className="page-wrapper">
         <div className="post-content">
           <Link to="/blog/" className="all-posts">
