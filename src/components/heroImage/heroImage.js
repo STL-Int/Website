@@ -16,7 +16,7 @@ const HeroImage = data => {
           </li>
           <li className="listItem button-wrapper">
             <a href={data.link} target="_blank" rel="noreferrer">
-              <button className="button">
+              <button className="btn-white button">
                 <h2>See our product shortform</h2>
               </button>
             </a>

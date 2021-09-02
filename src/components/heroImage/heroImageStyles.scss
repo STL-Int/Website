@@ -53,22 +53,11 @@
 }
 
 .button{
-    border: none;
-    background-color: rgba(0,0,0,0);
-    color: white;
-    border: 3px solid white;
     padding: 1em 3em;
-    cursor: pointer;
 
     h2{
         font-size: 1.5em;
         margin: 0;
-    }
-
-    &:hover{
-        color: var.$accentColor;
-        border: 3px solid var.$accentColor;
-        @include mix.fadeIn;
     }
 }
 
