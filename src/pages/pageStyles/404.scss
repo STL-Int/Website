@@ -36,6 +36,8 @@
 
     .error-button-wrapper{
         grid-area: button;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -56,9 +58,10 @@
     justify-content: center;
 }
 
-#error-button{
-    text-decoration: none;
-    font-size: 20px;
+.error-button{
+    width: 100%;
+    padding: 0.5rem !important;
+    margin: 0.2rem;
 }
 
 @media (max-width: var.$tabletWidth){
