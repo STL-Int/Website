@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -113,7 +113,7 @@ export default function Product({ data }) {
 
         <div className="back-link-super-wrapper">
           <div className="back-link-wrapper">
-            <button id="back-to-category" className="back-link" onClick={() => `${typeof window !== "undefined"?window.history.go(-1):null}`}><h3>&lt; Go Back</h3></button>
+            <button id="back-to-category" className="back-link" onClick={() => navigate(-1)}><h3>&lt; Go Back</h3></button>
           </div>
         </div>
 
