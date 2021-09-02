@@ -21,17 +21,18 @@ function NotFoundPage () {
         </div>
       
         <div className="error-button-wrapper">
-          <button 
-            className="btn-white error-button" 
-            onClick={() => navigate(-1)}
-          >
-            <p>Go Back</p>
-          </button>
+          
           <button 
             className="btn-white error-button" 
             onClick={() => navigate("/")}
           >
             <p>Go To Homepage</p>
+          </button>
+          <button 
+            className="btn-white error-button" 
+            onClick={() => navigate("/contact")}
+          >
+            <p>Contact Us</p>
           </button>
         </div>
       </div>
