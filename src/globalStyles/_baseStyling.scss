@@ -102,3 +102,17 @@ ul{
         border-color: var.$accentColor;
     }
 }
+.btn-white{
+    padding: 1em 2em;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    color: white;
+    border-radius: 3em;
+    cursor: pointer;
+    @include mix.fadeIn;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+    &:hover{
+        border-color: var.$accentColor;
+    }
+}
