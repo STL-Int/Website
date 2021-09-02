@@ -7,11 +7,8 @@ import Footer from "./footer/footer"
 
 import "./layoutStyles.scss"
 
-export function embedlyScript() {
-  return
-}
-
 function Layout({ children }) {
+  
   return (
     <body>
       <NavBar />
