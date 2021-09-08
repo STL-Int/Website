@@ -14,7 +14,7 @@ export default function Contact() {
         <form
           className="contact-form"
           method="post"
-          action="https://formspree.io/f/xdoyyjdq"
+          action="https://formspree.io/f/mgerrqlz "
         >
           <div className="name-wrapper">
             <label htmlFor="name">Full name</label>
