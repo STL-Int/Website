@@ -14,7 +14,7 @@ export default function Contact() {
         <form
           className="contact-form"
           method="post"
-          action="https://www.flexyform.com/f/8942339e839bb2f7789d2c04950859fda68afb39"
+          action="https://formspree.io/f/xdoyyjdq"
         >
           <div className="name-wrapper">
             <label htmlFor="name">Full name</label>
