@@ -19,6 +19,7 @@ function ContactForm() {
         </form>
       );
   }
+  
   return (
     <form
         id="contact"
