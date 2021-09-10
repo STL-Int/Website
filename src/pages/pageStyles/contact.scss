@@ -3,7 +3,7 @@
 
 .contact-page-content{
     background-image: linear-gradient(40deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%),
-    url(../../images/backgroundImages/chemistry-4473505_1920.jpg);
+    url(../../images/backgroundImages/STL_chemistry-4473505_1920.png);
     background-size: cover;
     display: grid;
     align-items: center;
@@ -54,6 +54,16 @@
     .submit-button{
         grid-area: submit;
     }
+}
+
+.form-success{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var.$headerColor;
+    text-align: center;
+    outline: #4CAF50 solid 2px;
+    outline-offset: -10px;
 }
 
 .input{
