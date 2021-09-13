@@ -221,8 +221,8 @@ const options = {
             ></iframe>
           </IframeContainer>
         )
-      } else{
-        <Hyperlink href={node.data.uri}> {children[0]} </Hyperlink>
+      } else {
+        ;<Hyperlink href={node.data.uri}> {children[0]} </Hyperlink>
       }
     },
   },
@@ -234,7 +234,13 @@ export default function NewsPost(props) {
 
   return (
     <Layout>
-      <SEO title={props.data.contentfulNewsPost.title} description={props.data.contentfulNewsPost?.excerpt.childMarkdownRemark.excerpt || null}/>
+      <SEO
+        title={props.data.contentfulNewsPost.title}
+        description={
+          props.data.contentfulNewsPost?.excerpt.childMarkdownRemark.excerpt ||
+          null
+        }
+      />
       <div className="page-wrapper">
         <div className="post-content">
           <Link to="/blog/" className="all-posts">

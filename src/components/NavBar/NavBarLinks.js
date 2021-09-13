@@ -31,14 +31,15 @@ const NavItem = styled(Link)`
     transition: all 0.3s ease-in;
   }
 
-  :hover, a:hover {
+  :hover,
+  a:hover {
     color: #6dc7fc;
     ::after {
       width: 100%;
     }
   }
 
-  a{
+  a {
     text-decoration: none;
     color: #fff;
   }
@@ -53,9 +54,7 @@ const NavbarLinks = () => {
   return (
     <>
       <NavItem>
-        <a href="tel:+441622749633">
-          +44 (0)1622 749 633
-        </a>
+        <a href="tel:+441622749633">+44 (0)1622 749 633</a>
       </NavItem>
       <NavItem as={Link} to="/categories/">
         Categories

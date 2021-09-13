@@ -6,9 +6,9 @@ import SEO from "../components/seo"
 
 import "./pageStyles/404.scss"
 
-function NotFoundPage () {
+function NotFoundPage() {
   return (
-    <Layout> 
+    <Layout>
       <SEO title="404: Not found" />
       <div className="error-page-wrapper">
         <div className="error-title-wrapper">
@@ -19,17 +19,16 @@ function NotFoundPage () {
             The Page You Requested Could Not Be Found
           </h2>
         </div>
-      
+
         <div className="error-button-wrapper">
-          
-          <button 
-            className="btn-white error-button" 
+          <button
+            className="btn-white error-button"
             onClick={() => navigate("/")}
           >
             <p>Go To Homepage</p>
           </button>
-          <button 
-            className="btn-white error-button" 
+          <button
+            className="btn-white error-button"
             onClick={() => navigate("/contact")}
           >
             <p>Contact Us</p>

@@ -8,7 +8,6 @@ import Footer from "./footer/footer"
 import "./layoutStyles.scss"
 
 function Layout({ children }) {
-  
   return (
     <body>
       <NavBar />

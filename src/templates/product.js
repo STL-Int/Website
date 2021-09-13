@@ -107,13 +107,21 @@ export default function Product({ data }) {
 
   return (
     <Layout>
-      <SEO title={product.productName} description={product.bodyText.childMarkdownRemark.excerpt}/>
+      <SEO
+        title={product.productName}
+        description={product.bodyText.childMarkdownRemark.excerpt}
+      />
 
       <div className="page-content">
-
         <div className="back-link-super-wrapper">
           <div className="back-link-wrapper">
-            <button id="back-to-category" className="back-link" onClick={() => navigate(-1)}><h3>&lt; Go Back</h3></button>
+            <button
+              id="back-to-category"
+              className="back-link"
+              onClick={() => navigate(-1)}
+            >
+              <h3>&lt; Go Back</h3>
+            </button>
           </div>
         </div>
 

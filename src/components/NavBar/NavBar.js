@@ -79,11 +79,11 @@ const Hamburger = styled.div`
     transition: all 0.3s linear;
   }
 
-  ::before{
+  ::before {
     top: 0;
     left: 0;
   }
-  ::after{
+  ::after {
     bottom: 0;
     right: 0;
   }
@@ -95,7 +95,8 @@ const Hamburger = styled.div`
   }
 
   ::after {
-    transform: ${props => (props.open ? "rotate(90deg) translate(-2px, 7.4px)" : "rotate(0deg)")};
+    transform: ${props =>
+      props.open ? "rotate(90deg) translate(-2px, 7.4px)" : "rotate(0deg)"};
     top: 10px;
   }
 `
