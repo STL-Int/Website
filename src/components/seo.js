@@ -60,16 +60,13 @@ export default function SEO({ description, lang, meta, title }) {
           name: `twitter:title`,
           content: title,
         },
-        {
-          name: `referrer`,
-          content: origin
-        }
       ].concat(meta)}
     >
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
+      <meta name="referrer" content="origin"></meta>
     </Helmet>
   )
 }
