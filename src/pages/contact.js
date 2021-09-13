@@ -46,6 +46,8 @@ function ContactForm() {
         name="_next"
         value="https://www.stl-int.uk/formsuccess/"
       ></input>
+      <input id="honeypot" type="text" name="_honey"></input>
+      <input type="hidden" name="_template" value="box"></input>
     </form>
   )
 }

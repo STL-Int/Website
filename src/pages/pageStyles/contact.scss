@@ -162,6 +162,10 @@ label{
     color: #66748a;
 }
 
+#honeypot{
+    display: none;
+}
+
 @media (max-width: 1700px){
     .contact-page-content{
         grid-template-columns: 10vw auto 50vw;
