@@ -48,6 +48,7 @@ function ContactForm() {
       ></input>
       <input id="honeypot" type="text" name="_honey"></input>
       <input type="hidden" name="_template" value="box"></input>
+      <input type="hidden" name="_url" value="https://stl-int.uk/contact.html"></input>
     </form>
   )
 }
