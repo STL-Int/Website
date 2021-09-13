@@ -21,11 +21,12 @@ function ContactForm() {
   }
   
   return (
+    // TODO: Add subject field
     <form
         id="contact"
         className="contact-form"
         method="post"
-        onSubmit={handleSubmit}
+        action="https://formsubmit.co/ruben.heyse@icloud.com"
     >
         <div className="name-wrapper">
         <label htmlFor="name">Full Name</label>
