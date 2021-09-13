@@ -11,7 +11,7 @@ function ContactForm() {
       id="contact"
       className="contact-form"
       method="post"
-      action="https://formsubmit.co/admin@stl-int.uk"
+      action="https://formsubmit.co/admin@stl-int.co.uk"
     >
       <div className="name-wrapper">
         <label htmlFor="name">Full Name</label>
