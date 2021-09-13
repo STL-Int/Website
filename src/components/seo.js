@@ -60,6 +60,10 @@ export default function SEO({ description, lang, meta, title }) {
           name: `twitter:title`,
           content: title,
         },
+        {
+          name: `referrer`,
+          content: origin
+        }
       ].concat(meta)}
     >
       <link
