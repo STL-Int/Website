@@ -28,11 +28,11 @@ function ContactForm() {
         onSubmit={handleSubmit}
     >
         <div className="name-wrapper">
-        <label htmlFor="name">Full name</label>
+        <label htmlFor="name">Full Name</label>
         <input
             id="name"
             type="text"
-            name="fullname"
+            name="name"
             required
             className="input"
         />
