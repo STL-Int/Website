@@ -222,14 +222,15 @@ const options = {
           </IframeContainer>
         )
       } else {
-        <Hyperlink href={node.data.uri}> {children[0]} </Hyperlink>
+        ;<Hyperlink href={node.data.uri}> {children[0]} </Hyperlink>
       }
     },
   },
 }
 
 export default function NewsPost(props) {
-  var image_name = props.data.contentfulNewsPost.featuredImage.file.fileName.split(".")
+  var image_name =
+    props.data.contentfulNewsPost.featuredImage.file.fileName.split(".")
 
   return (
     <Layout>
