@@ -19,9 +19,9 @@
         auto
         3em
         auto
-        1em
-        // auto
-        // 5em
+        3em
+        auto
+        5em
         auto
     ;
     grid-template-areas: 
@@ -30,8 +30,8 @@
         "."
         "meta"
         "."
-        // "image"
-        // "image-description"
+        "image"
+        "image-description"
         "body"
     ;
 
@@ -50,15 +50,15 @@
         grid-area: meta;
         min-height: 5em;
     }
-    // .hero-image{
-    //     grid-area: image;
-    //     width: 100%;
-    //     aspect-ratio: 1 / 0.46;
-    // }
-    // .image-description{
-    //     grid-area: image-description;
-    //     width: 100%;
-    // }
+    .hero-image{
+        grid-area: image;
+        width: 100%;
+        aspect-ratio: 1 / 0.46;
+    }
+    .image-description{
+        grid-area: image-description;
+        width: 100%;
+    }
     .body-wrapper{
         grid-area: body;
         width: 100%;
