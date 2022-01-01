@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroImage from "../components/heroImage/heroImage"
 import CategoryCard from "../components/categoryCard/categoryCard"
-import NewsPostCard from "../components/newsPostCard/newsPostCard"
+
 
 import "./pageStyles/index.scss"
 
