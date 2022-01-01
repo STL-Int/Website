@@ -65,7 +65,7 @@ const NavbarLinks = () => {
       <NavItem as={Link} to="/downloads/">
         Downloads
       </NavItem>
-      <NavItem as={Link} to="/blog/">
+      <NavItem as={Link} to="https://stl-int.medium.com/" target="_blank">
         News
       </NavItem>
       <NavItem as={Link} to="/contact/">
