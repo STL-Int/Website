@@ -1,29 +1,29 @@
 const path = require("path")
 
-async function turnNewsIntoPage({ graphql, actions }) {
-  const { createPage } = actions
-  const response = await graphql(`
-    query {
-      allContentfulNewsPost {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-  `)
+// async function turnNewsIntoPage({ graphql, actions }) {
+//   const { createPage } = actions
+//   const response = await graphql(`
+//     query {
+//       allContentfulNewsPost {
+//         edges {
+//           node {
+//             slug
+//           }
+//         }
+//       }
+//     }
+//   `)
 
-  response.data.allContentfulNewsPost.edges.forEach(edge => {
-    createPage({
-      path: `/blog/${edge.node.slug}`,
-      component: path.resolve("./src/templates/news-post.js"),
-      context: {
-        slug: edge.node.slug,
-      },
-    })
-  })
-}
+//   response.data.allContentfulNewsPost.edges.forEach(edge => {
+//     createPage({
+//       path: `/blog/${edge.node.slug}`,
+//       component: path.resolve("./src/templates/news-post.js"),
+//       context: {
+//         slug: edge.node.slug,
+//       },
+//     })
+//   })
+// }
 
 async function turnCategoryIntoPage({ graphql, actions }) {
   const { createPage } = actions
@@ -81,7 +81,7 @@ async function turnProductIntoPage({ graphql, actions }) {
 
 async function createPages(params) {
   await Promise.all([
-    turnNewsIntoPage(params),
+    // turnNewsIntoPage(params),
     turnCategoryIntoPage(params),
     turnProductIntoPage(params),
   ])
