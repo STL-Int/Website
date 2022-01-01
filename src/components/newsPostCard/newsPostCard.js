@@ -5,26 +5,48 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./newsPostCardStyling.scss"
 
-const NewsPostCard = ({ imgSrc, imgAlt, slug, title, date, excerpt }) => {
-  const max_title_chars = 36
-  if (title.length > max_title_chars) {
-    title = title.substring(0, max_title_chars) + " ..."
+class NewsPostCard extends React.Component {
+
+  constructor(){
+    super()
+    this.blogs = [];
   }
-  return (
-    <div className="post-wrapper">
-      <Link to={`/blog/${slug}/`} className="post">
-        <GatsbyImage className="featured-image" image={imgSrc} alt={imgAlt} />
 
-        <h2 className="title">{title}</h2>
+  componentDidMount(){
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://stl-int.medium.com')
+    .then(resp => resp.json())
+    .then(blogs => this.setState({blogs}))
+  }
 
-        <div className="date small-print">
-          <span>{date}</span>
-        </div>
+  renderBlogs = () => {
+    if(this.state.blogs.items){
+      return (
+          <ul id="sector-grid-index" className="sector-grid">
+            {this.state.blogs.items.map(post => {
+              return (
+                <li key={edge.node.id} className="sector-card-wrapper">
+                  <div className="card">
+                    <img src = {post.thumbnail} className = "Img"/>
+                    <h1 className = "cardHeader">{post.title}</h1>
+                    <p className = "cardText">Posted on: {post.pubDate}</p>
+                    <a href = {post.link} className = "Link"> Read the Full Blog Here!</a>
+                  </div> 
+                </li>
+              )
+            })}
+          </ul>
+        )
+      }
+    }
+  }
 
-        <p className="excerpt">{excerpt}</p>
-      </Link>
-    </div>
-  )
+  render = () => {
+    return(
+      <div>
+      {this.renderBlogs()}
+      </div>
+    )
+  }
 }
 
 export default NewsPostCard
