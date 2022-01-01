@@ -29,7 +29,7 @@ export default function Category({ data }) {
 
           return (
             <li key={docType.node.id} className="doc-type-wrapper">
-              <h1 id={category_id} className="download__heading">
+              <h1 id={download_category_name} className="download__heading">
                 {download_category_name}
               </h1>
 
