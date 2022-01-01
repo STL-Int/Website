@@ -42,6 +42,13 @@ module.exports = {
     },
 
     {
+      resolve: `gatsby-source-medium`,
+      options: {
+        username: `@stl-int`,
+      },
+    },
+
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
