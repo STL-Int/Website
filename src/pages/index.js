@@ -4,8 +4,8 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroImage from "../components/heroImage/heroImage"
-import NewsPostCard from "../components/newsPostCard/newsPostCard"
 import CategoryCard from "../components/categoryCard/categoryCard"
+import NewsPostCard from "../components/newsPostCard/newsPostCard"
 
 import "./pageStyles/index.scss"
 
@@ -27,32 +27,6 @@ const IndexPage = () => {
               slug
               image {
                 gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
-          }
-        }
-
-        allContentfulNewsPost(
-          sort: { fields: publishedDate, order: DESC }
-          limit: 6
-        ) {
-          edges {
-            node {
-              title
-              id
-              slug
-              publishedDate(formatString: "Do MMMM, YYYY")
-              featuredImage {
-                gatsbyImageData(width: 750, quality: 80, layout: CONSTRAINED)
-
-                file {
-                  fileName
-                }
-              }
-              excerpt {
-                childMarkdownRemark {
-                  excerpt(pruneLength: 200)
-                }
               }
             }
           }
@@ -98,43 +72,7 @@ const IndexPage = () => {
         </Link>
       </div>
 
-      <div id="Categories" className="index-section">
-        <h2 id="news-title" className="section-title">
-          News
-        </h2>
-        <hr className="index-rule" />
-
-        <div className="grid-super-wrapper">
-          <div className="grid-boundary-box">
-            <ul className="grid">
-              {data.allContentfulNewsPost.edges.map(edge => {
-                if (edge.node.featuredImage.file !== null) {
-                  return (
-                    <li key={edge.node.id}>
-                      <NewsPostCard
-                        imgSrc={edge.node.featuredImage.gatsbyImageData}
-                        imgAlt={edge.node.featuredImage.file.fileName}
-                        slug={edge.node.slug}
-                        title={edge.node.title}
-                        date={edge.node.publishedDate}
-                        excerpt={edge.node.excerpt.childMarkdownRemark.excerpt}
-                      />
-                    </li>
-                  )
-                } else {
-                  return console.log("list item is null")
-                }
-              })}
-            </ul>
-
-            <Link to="/blog/" className="see-more-link">
-              <button className="btn">
-                <p>See All News Posts</p>
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      
     </Layout>
   )
 }
