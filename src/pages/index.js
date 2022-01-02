@@ -139,7 +139,7 @@ const IndexPage = () => {
             href="https://stl-int.medium.com"
             target="_blank"
           >
-            Go To Blog
+            Explore
           </a>
         </div>
       </div>

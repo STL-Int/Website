@@ -54,7 +54,7 @@
     text-decoration: none;
     width: auto;
     max-width: 500px;
-    align-self: center;
+    align-self: flex-start;
 }
 
 .index-section{
@@ -82,4 +82,10 @@
 
 #Categories{
     margin-bottom: 10vh;
+}
+
+@media (max-width: var.$tabletWidth){
+    .see-more-link{
+        align-self: center;
+    }
 }
