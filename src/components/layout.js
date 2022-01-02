@@ -9,7 +9,7 @@ import "./layoutStyles.scss"
 
 function Layout({ children }) {
   return (
-    <body>
+    <main>
       <NavBar />
 
       <div className="main-content">
@@ -17,7 +17,7 @@ function Layout({ children }) {
       </div>
 
       <Footer />
-    </body>
+    </main>
   )
 }
 

@@ -2,11 +2,59 @@
 @use "../../globalStyles/mixins" as mix;
 @use "../../globalStyles/variables" as var;
 
+.medium-blog-card{
+    max-width: 70vw;
+    width: 100%;
+    max-height: 250px;
+    background-image: linear-gradient(40deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url(../../images/backgroundImages/oil-rig.jpg);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    color: white;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    h3{
+        margin-top: 0.5em;
+    }
+}
+
+#medium-link{
+    padding: 1em 2em;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    border-radius: 3em;
+    cursor: pointer;
+    @include mix.fadeIn;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    color: white;
+    margin-top: 3em;
+
+    &:hover{
+        border-color: var.$accentColor;
+    }
+
+    &:visited{
+        color: white;
+    }
+}
+
+#News{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .see-more-link{
     display: flex;
     justify-content: center;
     margin-top: 5em;
     text-decoration: none;
+    width: auto;
+    max-width: 500px;
+    align-self: center;
 }
 
 .index-section{
@@ -29,7 +77,7 @@
 
 .index-rule{
     width: 80vw;
-    margin-top: 5vh;
+    margin: 10vh 10vw;
 }
 
 #Categories{
