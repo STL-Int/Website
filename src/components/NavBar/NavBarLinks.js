@@ -32,14 +32,14 @@ const NavItem = styled(Link)`
   }
 
   :hover,
-  a:hover {
+  a:hover, Link:hover{
     color: #6dc7fc;
     ::after {
       width: 100%;
     }
   }
 
-  a {
+  a, Link {
     text-decoration: none;
     color: #fff;
   }
