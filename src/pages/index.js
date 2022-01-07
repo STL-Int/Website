@@ -138,6 +138,7 @@ const IndexPage = () => {
             className="see-more-link btn" 
             href="https://stl-int.medium.com"
             target="_blank"
+            rel="noreferrer"
           >
             Explore
           </a>
