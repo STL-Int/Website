@@ -56,20 +56,20 @@ const NavbarLinks = () => {
       <NavItem>
         <a href="tel:+441622749633">+44 (0)1622 749 633</a>
       </NavItem>
-      <NavItem as={Link} to="/categories/">
-        Categories
+      <NavItem>
+        <Link to="/categories/" >Categories</Link>
       </NavItem>
-      <NavItem as={Link} to="/downloads/#brochures">
-        Brochures
+      <NavItem>
+        <Link to="/downloads/#brochures" >Brochures</Link>
       </NavItem>
-      <NavItem as={Link} to="/downloads/">
-        Downloads
+      <NavItem>
+        <Link to="/downloads/">Downloads</Link>
       </NavItem>
-      <NavItem as={Link} to="https://stl-int.medium.com/" target="_blank">
-        News
+      <NavItem>
+        <a href="https://stl-int.medium.com/" target="_blank">News</a>
       </NavItem>
-      <NavItem as={Link} to="/contact/">
-        Contact
+      <NavItem>
+        <Link to="/contact/">Contact</Link>
       </NavItem>
     </>
   )
