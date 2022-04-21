@@ -98,6 +98,7 @@ const IndexPage = () => {
           }
         }
 
+<<<<<<< HEAD
         # allMediumPost(sort: { fields: [createdAt], order: DESC }) {
         #   edges {
         #     node {
@@ -113,6 +114,23 @@ const IndexPage = () => {
         #   }
         # }
       }
+=======
+//         allMediumPost(sort: { fields: [createdAt], order: DESC }) {
+//           edges {
+//             node {
+//               id
+//               title
+//               virtuals {
+//                 subtitle
+//                 previewImage {
+//                   imageId
+//                 }
+//               }
+//             }
+//           }
+//         }
+       }
+>>>>>>> aed8f962ef4563a5c94d192fe2d20cb3fea365ce
     `
   )
 
