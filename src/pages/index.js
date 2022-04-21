@@ -98,21 +98,21 @@ const IndexPage = () => {
           }
         }
 
-        allMediumPost(sort: { fields: [createdAt], order: DESC }) {
-          edges {
-            node {
-              id
-              title
-              virtuals {
-                subtitle
-                previewImage {
-                  imageId
-                }
-              }
-            }
-          }
-        }
-      }
+//         allMediumPost(sort: { fields: [createdAt], order: DESC }) {
+//           edges {
+//             node {
+//               id
+//               title
+//               virtuals {
+//                 subtitle
+//                 previewImage {
+//                   imageId
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
     `
   )
 
