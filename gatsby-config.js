@@ -41,12 +41,12 @@ module.exports = {
       },
     },
 
-    {
-      resolve: `gatsby-source-medium`,
-      options: {
-        username: `@stl-int`,
-      },
-    },
+//     {
+//       resolve: `gatsby-source-medium`,
+//       options: {
+//         username: `@stl-int`,
+//       },
+//     },
 
     {
       resolve: `gatsby-source-filesystem`,
@@ -83,7 +83,6 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        forceFullSync: true,
       },
     },
 
