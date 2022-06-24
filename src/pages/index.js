@@ -1,12 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroImage from "../components/heroImage/heroImage"
 import CategoryCard from "../components/categoryCard/categoryCard"
-
 
 import "./pageStyles/index.scss"
 
