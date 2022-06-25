@@ -8,12 +8,11 @@ import CategoryCard from "../components/categoryCard/categoryCard"
 
 import "./pageStyles/index.scss"
 
-
 // const axios = require('axios').default;
 // import NewsCard from "../components/NewsCard/NewsCard"
 
 // function allPostData () {
-  
+
 //   if (typeof document !== undefined){
 //     console.log(document)
 //     const ul = document.getElementById('news');
@@ -44,18 +43,14 @@ import "./pageStyles/index.scss"
 //       console.log(error);
 //     });
 
-
 //     ul.appendChild(list)
 
-
 //   }
-
-  
 
 //   // return fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@stl-int')
 //   // .then((res) => res.json())
 //   // .then((data) => {
-//   //   const res = data.items 
+//   //   const res = data.items
 //   //   const posts = res.filter(item => item.categories.length > 0)
 //   //   // console.log(posts)
 //   //   posts.map((p,i) => {
@@ -66,12 +61,8 @@ import "./pageStyles/index.scss"
 //   //     )
 //   //   })
 //   // })
-  
+
 // }
-
-
-
-
 
 const IndexPage = () => {
   const data = useStaticQuery(
@@ -114,10 +105,8 @@ const IndexPage = () => {
     `
   )
 
-  
   // console.log(allPostData())
 
-  
   return (
     <Layout>
       <SEO title="Home" />
@@ -125,15 +114,11 @@ const IndexPage = () => {
 
       <div id="News" className="index-section">
         <div className="medium-blog-card">
-          <h2>
-            Check Out Our New Blog!
-          </h2>
-          <h3>
-            Keep Up To Date With The Latest Industry News
-          </h3>
-          <a 
+          <h2>Check Out Our New Blog!</h2>
+          <h3>Keep Up To Date With The Latest Industry News</h3>
+          <a
             id="medium-link"
-            className="see-more-link btn" 
+            className="see-more-link btn"
             href="https://stl-int.medium.com"
             target="_blank"
             rel="noreferrer"
@@ -144,7 +129,7 @@ const IndexPage = () => {
       </div>
 
       <hr className="index-rule" />
-        {/* ################ */}
+      {/* ################ */}
 
       <div id="Categories" className="index-section">
         <h2 id="category-title" className="section-title">
@@ -175,14 +160,7 @@ const IndexPage = () => {
             <p>See All Categories</p>
           </button>
         </Link>
-
       </div>
-        
-      
-        
-      
-
-      
     </Layout>
   )
 }
