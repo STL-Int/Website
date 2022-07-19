@@ -1,7 +1,7 @@
 {
   "name": "stl-international-ltd",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "SAFE answers to HAZERDOUS questions",
   "author": "RubenHeyse",
   "keywords": [
